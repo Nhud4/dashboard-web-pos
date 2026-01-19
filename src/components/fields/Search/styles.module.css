@@ -1,0 +1,17 @@
+.search {
+  @apply flex items-center p-2 px-4 space-x-4 rounded-lg border border-border bg-white text-sm;
+  height: 48px;
+  width: 302px;
+}
+
+.search:focus-within {
+  @apply outline outline-2 outline-orange;
+}
+
+.search > input {
+  @apply w-full;
+}
+
+.search > input:focus {
+  @apply outline-none;
+}

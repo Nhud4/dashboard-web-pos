@@ -1,0 +1,19 @@
+.container {
+  @apply flex w-full overflow-hidden;
+}
+
+.content {
+  @apply relative flex-1 px-0 ml-28;
+}
+
+.orderCard {
+  margin-right: 480px;
+}
+
+.withSidebar {
+  @apply flex;
+}
+
+.mainContent {
+  @apply mt-40;
+}
