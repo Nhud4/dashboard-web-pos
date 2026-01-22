@@ -9,18 +9,22 @@ import EyeSlash from '@assets/icons/eye-slash.svg?react'
 import Home from '@assets/icons/home.svg?react'
 import Lock from '@assets/icons/lock.svg?react'
 import Logo from '@assets/icons/Logo.svg?react'
-import MinusCircle from '@assets/icons/minus-circle.svg?react'
 import Plus from '@assets/icons/plus.svg?react'
-import PlusCircle from '@assets/icons/plus-circle.svg?react'
 import Printer from '@assets/icons/printer.svg?react'
 import Qris from '@assets/icons/qris.svg?react'
 import Reload from '@assets/icons/reload.svg?react'
-import Report from '@assets/icons/report.svg?react'
 import Search from '@assets/icons/search.svg?react'
-import Setting from '@assets/icons/setting.svg?react'
 import SingOut from '@assets/icons/sign-out.svg?react'
 import Trash from '@assets/icons/Trash.svg?react'
 import Wallet from '@assets/icons/Wallet.svg?react'
+import Archive from '@assets/icons/archive.svg?react'
+import Bags from '@assets/icons/bags.svg?react'
+import Cart from '@assets/icons/cart.svg?react'
+import Menu from '@assets/icons/menu.svg?react'
+import Notification from '@assets/icons/notification.svg?react'
+import Settings1 from '@assets/icons/settings 1.svg?react'
+import SidebarFlip1 from '@assets/icons/sidebar-flip 1.svg?react'
+import VuesaxBoldEmptyWallet from '@assets/icons/vuesax bold empty wallet.svg?react'
 
 const ICONS = {
   Arrow,
@@ -34,18 +38,22 @@ const ICONS = {
   Home,
   Lock,
   Logo,
-  MinusCircle,
   Plus,
-  PlusCircle,
   Printer,
   Qris,
   Reload,
-  Report,
   Search,
-  Setting,
   SingOut,
   Trash,
   Wallet,
+  Archive,
+  Bags,
+  Cart,
+  Menu,
+  Notification,
+  Settings1,
+  SidebarFlip1,
+  VuesaxBoldEmptyWallet,
 }
 
 export default ICONS
