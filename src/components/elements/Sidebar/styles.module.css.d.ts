@@ -1,11 +1,15 @@
 declare const styles: {
-  readonly container: string
-  readonly nav: string
-  readonly menu: string
-  readonly brand: string
   readonly active: string
-  readonly curved: string
-  readonly topCurved: string
-  readonly bottomCurved: string
+  readonly active__dropdown: string
+  readonly app: string
+  readonly brand: string
+  readonly close: string
+  readonly container: string
+  readonly dropdown: string
+  readonly dropdown__sub: string
+  readonly nav: string
+  readonly nav__item: string
+  readonly notification: string
+  readonly open: string
 }
 export = styles

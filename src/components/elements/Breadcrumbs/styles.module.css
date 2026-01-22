@@ -1,0 +1,17 @@
+.container {
+  @apply flex items-center;
+}
+
+.pages {
+  @apply relative text-sm font-medium text-primary;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    margin-top: -4px;
+  }
+
+  .pages {
+    @apply text-xs;
+  }
+}

@@ -16,22 +16,6 @@ const routes: Route[] = [
     path: '/login',
   },
   {
-    component: <PAGES.Orders />,
-    icon: <ICONS.Report />,
-    isSidebar: true,
-    name: 'Daftar Pesanan',
-    path: '/order',
-    requireAuth: true,
-  },
-  {
-    component: <PAGES.Settings />,
-    icon: <ICONS.Setting />,
-    isSidebar: true,
-    name: 'Pengaturan',
-    path: '/setting',
-    requireAuth: true,
-  },
-  {
     component: <PAGES.NotFound />,
     name: 'Not Found',
     path: '*',

@@ -24,7 +24,6 @@ export const LoginForm: React.FC = (): React.ReactElement => {
   const onSubmit = handleSubmit(async (data) => {
     const payload: LoginRequest = {
       password: data.password,
-      role: 'cashier',
       username: data.username,
     }
     dispatch(authLogin(payload))

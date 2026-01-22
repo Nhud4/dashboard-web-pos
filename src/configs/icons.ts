@@ -1,6 +1,9 @@
 import Arrow from '@assets/icons/angle.svg?react'
+import Archive from '@assets/icons/archive.svg?react'
 import Back from '@assets/icons/Back.svg?react'
+import Bags from '@assets/icons/bags.svg?react'
 import Card from '@assets/icons/card.svg?react'
+import Cart from '@assets/icons/cart.svg?react'
 import CheckCircle from '@assets/icons/check-circle 1.svg?react'
 import Close from '@assets/icons/close.svg?react'
 import Calendar from '@assets/icons/date-calendar.svg?react'
@@ -9,28 +12,28 @@ import EyeSlash from '@assets/icons/eye-slash.svg?react'
 import Home from '@assets/icons/home.svg?react'
 import Lock from '@assets/icons/lock.svg?react'
 import Logo from '@assets/icons/Logo.svg?react'
+import Menu from '@assets/icons/menu.svg?react'
+import Notification from '@assets/icons/notification.svg?react'
 import Plus from '@assets/icons/plus.svg?react'
 import Printer from '@assets/icons/printer.svg?react'
 import Qris from '@assets/icons/qris.svg?react'
 import Reload from '@assets/icons/reload.svg?react'
 import Search from '@assets/icons/search.svg?react'
-import SingOut from '@assets/icons/sign-out.svg?react'
-import Trash from '@assets/icons/Trash.svg?react'
-import Wallet from '@assets/icons/Wallet.svg?react'
-import Archive from '@assets/icons/archive.svg?react'
-import Bags from '@assets/icons/bags.svg?react'
-import Cart from '@assets/icons/cart.svg?react'
-import Menu from '@assets/icons/menu.svg?react'
-import Notification from '@assets/icons/notification.svg?react'
 import Settings1 from '@assets/icons/settings 1.svg?react'
 import SidebarFlip1 from '@assets/icons/sidebar-flip 1.svg?react'
+import SingOut from '@assets/icons/sign-out.svg?react'
+import Trash from '@assets/icons/Trash.svg?react'
 import VuesaxBoldEmptyWallet from '@assets/icons/vuesax bold empty wallet.svg?react'
+import Wallet from '@assets/icons/Wallet.svg?react'
 
 const ICONS = {
+  Archive,
   Arrow,
   Back,
+  Bags,
   Calendar,
   Card,
+  Cart,
   CheckCircle,
   Close,
   Eye,
@@ -38,22 +41,19 @@ const ICONS = {
   Home,
   Lock,
   Logo,
+  Menu,
+  Notification,
   Plus,
   Printer,
   Qris,
   Reload,
   Search,
-  SingOut,
-  Trash,
-  Wallet,
-  Archive,
-  Bags,
-  Cart,
-  Menu,
-  Notification,
   Settings1,
   SidebarFlip1,
+  SingOut,
+  Trash,
   VuesaxBoldEmptyWallet,
+  Wallet,
 }
 
 export default ICONS

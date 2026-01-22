@@ -2,8 +2,8 @@ import Header from '@components/elements/Header'
 import Notify from '@components/elements/Notify'
 import Sidebar from '@components/elements/Sidebar'
 import { NotifyContext } from '@contexts/NotifyContext'
-import OrderSection from '@features/OrderSection'
-// import { authProfile } from '@redux/slices/auth/action'
+import { useAppSelector } from '@redux/hooks'
+import { clsx } from '@utils/index'
 import { useContext, useEffect } from 'react'
 
 import styles from './styles.module.css'
@@ -11,29 +11,12 @@ import styles from './styles.module.css'
 type Props = {
   children: React.ReactNode
   title?: string
-  orderCard?: boolean
-  subTitle?: string
-  headerMenu?: boolean
-  actionComponent?: React.ReactElement
+  withSidebar?: boolean
 }
 
-const Layout: React.FC<Props> = ({
-  children,
-  title = 'Dashboard',
-  orderCard = true,
-  subTitle,
-  headerMenu,
-  actionComponent,
-}) => {
+const Layout: React.FC<Props> = ({ children, title = 'Dashboard' }) => {
   const { setNotify } = useContext(NotifyContext)
-  // const dispatch = useAppDispatch()
-  // const { data } = useAppSelector((state) => state.auth.profile)
-
-  // useEffect(() => {
-  //   if (!data.name) {
-  //     dispatch(authProfile())
-  //   }
-  // }, [dispatch, data])
+  const isOpenSideMenu = useAppSelector((state) => state.app.openSideMenu)
 
   useEffect(() => {
     window.addEventListener('offline', () => {
@@ -56,19 +39,17 @@ const Layout: React.FC<Props> = ({
   return (
     <div className={`${styles.container} ${styles.withSidebar}`}>
       <Sidebar />
-      <main
-        className={`${styles.content} ${orderCard ? styles.orderCard : ''}`}
-      >
-        <Header
-          actionComponent={actionComponent}
-          headerMenu={headerMenu}
-          orderCard={orderCard}
-          subTitle={subTitle}
-          title={title}
-        />
-        <div className={orderCard ? 'mt-40' : 'mt-32'}>{children}</div>
+      <main className={styles.content}>
+        <Header title={title} />
+        <div
+          className={clsx([
+            styles.mainContent,
+            isOpenSideMenu ? styles.open : '',
+          ])}
+        >
+          {children}
+        </div>
       </main>
-      {orderCard ? <OrderSection /> : null}
       <Notify />
     </div>
   )

@@ -1,15 +1,35 @@
 .navbar {
-  @apply flex items-center justify-between w-full p-8;
+  @apply fixed z-40 flex items-center justify-between w-full py-4 pr-8 transition-all duration-500 bg-white pl-28 drop-shadow;
 }
 
-.menu {
-  @apply border-b border-b-border;
+.navbar.open {
+  @apply pl-72;
 }
 
-.title > h1 {
-  @apply text-xl font-bold;
+.title {
+  @apply text-2xl font-bold text-primary-3;
 }
 
-.title > p {
-  @apply text-neutral-5;
+.profile {
+  @apply flex items-center;
+}
+
+.notification {
+  @apply relative p-2 mr-8;
+}
+
+.wrapper {
+  @apply relative h-16;
+}
+
+.user {
+  @apply flex items-center pl-6 pr-2 py-2 space-x-2 rounded-full shadow-card;
+}
+
+.name {
+  @apply text-base font-medium text-black/80;
+}
+
+.logout {
+  @apply absolute right-0 top-16 p-4 w-48 bg-white border border-gray-200 rounded-full shadow-lg;
 }

@@ -1,61 +1,162 @@
 .container {
-  @apply fixed z-50 flex flex-col items-center h-screen py-8 bg-white gap-8;
-  min-width: 108px;
+  @apply fixed z-50 flex flex-col h-screen py-6 text-primary-3 transition-all duration-500 bg-white border-r;
+}
+
+.container.open {
+  @apply lg:w-64 2xl:w-72;
+}
+
+.brand {
+  @apply flex items-center justify-between px-6 mb-4 pb-5 text-2xl border-b;
+}
+
+.app {
+  @apply flex items-center space-x-2;
+}
+
+.app > div {
+  @apply text-left;
+}
+
+.app > div h4 {
+  @apply mb-2 text-lg font-semibold;
+}
+
+.app > div p {
+  @apply text-sm font-medium;
+}
+
+.container.close {
+  @apply w-20;
+}
+
+.container.close .nav__item > button > :not(svg),
+.container.close .nav__item > a > :not(svg),
+.container.close .nav__item > p,
+.container.close .brand > div:first-child,
+.container.close .nav__item > .notification > span {
+  @apply hidden;
 }
 
 .nav {
-  @apply flex flex-col w-full pl-4;
+  @apply flex-1 pb-2 overflow-auto transition-all ease-linear;
 }
 
-.menu {
-  @apply w-full rounded-l-xl pl-3 py-3;
+.nav > * + * {
+  @apply mt-2;
 }
 
-.menu > button {
-  @apply flex justify-center items-center rounded-xl;
-  width: 56px;
-  height: 56px;
+.nav__item {
+  @apply relative;
 }
 
-.menu > button > svg {
-  @apply text-orange;
+.nav__item > button > p,
+.nav__item > a > p {
+  @apply text-left;
 }
 
-.menu.active {
-  @apply bg-neutral-4;
+.nav__item > button,
+.nav__item > p,
+.nav__item > a {
+  @apply relative flex items-center w-full px-6 py-4 text-base font-semibold transition-all text-primary;
 }
 
-.menu > button:hover,
-.menu.active > button {
-  @apply bg-orange;
+.nav__item > button > * + * {
+  @apply ml-4;
 }
 
-.menu > button:hover > svg,
-.menu.active > button > svg {
-  color: white;
+.nav__item > a > * + * {
+  @apply ml-4;
 }
 
-.curved {
-  @apply flex justify-end w-full;
+.nav__item.active > button,
+.nav__item > button:hover,
+.nav__item.active > a,
+.nav__item > a:hover {
+  @apply py-4 opacity-100 bg-orange text-white;
 }
 
-.topCurved {
-  @apply w-5 h-5;
+.nav__item.active > button::before,
+.nav__item.active > a::before {
+  content: '';
+  @apply absolute w-1 h-6 transform -translate-y-1/2 rounded top-1/2 bottom-1/2 right-1 bg-white;
 }
 
-.topCurved > div {
-  @apply bg-white w-5 h-5 rounded-br-full;
+.nav__item > button:disabled {
+  @apply pointer-events-none text-primary;
 }
 
-.bottomCurved {
-  @apply w-5 h-5;
+.nav__item.active > button > svg,
+.nav__item:hover > button > svg,
+.nav__item.active > a > svg,
+.nav__item:hover > a > svg {
+  @apply fill-primary;
 }
 
-.bottomCurved > div {
-  @apply bg-white w-5 h-5 rounded-tr-full;
+.notification {
+  @apply absolute grid w-6 h-6 text-white transform -translate-y-1/2 bg-red-500 rounded-full right-6 top-1/2 bottom-1/2 place-items-center;
 }
 
-.topCurved.active,
-.bottomCurved.active {
-  @apply bg-neutral-4;
+.notification > span {
+  @apply text-xs;
+}
+
+.container.close .nav__item > .notification {
+  @apply w-2 h-2 right-9 top-6;
+}
+
+.dropdown {
+  @apply overflow-hidden bg-primary;
+}
+
+.dropdown__sub {
+  @apply overflow-hidden bg-primary;
+}
+
+.dropdown button,
+.dropdown__sub button {
+  @apply !bg-transparent text-primary font-medium opacity-75;
+}
+
+.dropdown button {
+  @apply ml-2;
+}
+
+.dropdown__sub button {
+  @apply ml-4;
+}
+
+.dropdown button:hover {
+  @apply text-white opacity-100;
+}
+
+.dropdown button::before,
+.dropdown__sub button::before {
+  content: '';
+  @apply w-2 h-2 mr-2 -mt-1 rounded-full bg-primary;
+}
+
+.nav__item.active__dropdown > button,
+.nav__item.active__dropdown > a {
+  @apply text-white opacity-100;
+}
+
+.nav__item.active__dropdown > button::before,
+.nav__item.active__dropdown > a::before {
+  @apply bg-white opacity-100;
+}
+
+@media screen and (max-width: 768px) {
+  .container.close {
+    @apply hidden;
+  }
+
+  .container.open {
+    @apply w-56;
+  }
+
+  .container.open .nav__item > button > p,
+  .container.open .nav__item > a > p {
+    @apply text-sm;
+  }
 }

@@ -1,28 +1,44 @@
-import { clsx } from '@utils/index'
+import ICONS from '@configs/icons'
+import IMAGES from '@configs/images'
+import { useAppDispatch, useAppSelector } from '@redux/hooks'
+import { toggleSideMenu } from '@redux/slices/appSlice'
 
+import Breadcrumbs from '../Breadcrumbs'
 import styles from './styles.module.css'
 
 type Props = {
   title?: string
-  subtitle?: string
-  headerMenu?: boolean
-  actionComponent?: React.ReactElement
 }
 
-const Navbar: React.FC<Props> = ({
-  title = 'Dasboard',
-  subtitle,
-  headerMenu,
-  actionComponent,
-}) => {
-  return (
-    <nav className={clsx([styles.navbar, headerMenu ? '' : styles.menu])}>
-      <div className={styles.title}>
-        <h1>{title}</h1>
-        <p>{subtitle}</p>
-      </div>
+const Navbar: React.FC<Props> = ({ title = 'Dasboard' }) => {
+  const dispatch = useAppDispatch()
+  const isOpenSideMenu = useAppSelector((state) => state.app.openSideMenu)
 
-      {actionComponent}
+  return (
+    <nav className={`${styles.navbar} ${isOpenSideMenu && styles.open}`}>
+      <div className="flex items-center space-x-4">
+        <button
+          className="transform rotate-180 transition-all"
+          onClick={() => dispatch(toggleSideMenu())}
+        >
+          <ICONS.SidebarFlip1 fill="#247BA0" />
+        </button>
+        <div>
+          <h3 className={styles.title}>{title}</h3>
+          <Breadcrumbs />
+        </div>
+      </div>
+      <div className={styles.profile}>
+        <div className={styles.wrapper}>
+          <div className={styles.user}>
+            <div>
+              <p className={styles.name}>Huda</p>
+              <p className="text-sm text-neutral-5">Manager</p>
+            </div>
+            <img alt="Admin" src={IMAGES.Avatar} />
+          </div>
+        </div>
+      </div>
     </nav>
   )
 }
