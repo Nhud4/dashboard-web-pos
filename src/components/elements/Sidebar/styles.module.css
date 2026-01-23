@@ -3,7 +3,7 @@
 }
 
 .container.open {
-  @apply lg:w-64 2xl:w-72;
+  @apply lg:w-64;
 }
 
 .brand {
@@ -39,7 +39,7 @@
 }
 
 .nav {
-  @apply flex-1 pb-2 overflow-auto transition-all ease-linear;
+  @apply flex-1 pb-2 px-4 overflow-auto transition-all ease-linear;
 }
 
 .nav > * + * {
@@ -58,7 +58,7 @@
 .nav__item > button,
 .nav__item > p,
 .nav__item > a {
-  @apply relative flex items-center w-full px-6 py-4 text-base font-semibold transition-all text-primary;
+  @apply relative flex items-center w-full px-6 py-4 text-base font-medium transition-all text-primary-3;
 }
 
 .nav__item > button > * + * {
@@ -69,28 +69,24 @@
   @apply ml-4;
 }
 
+.nav__item > button > svg {
+  @apply text-orange;
+}
+
+.nav__item.active > button > svg,
+.nav__item > button:hover > svg {
+  @apply text-white;
+}
+
 .nav__item.active > button,
 .nav__item > button:hover,
 .nav__item.active > a,
 .nav__item > a:hover {
-  @apply py-4 opacity-100 bg-orange text-white;
-}
-
-.nav__item.active > button::before,
-.nav__item.active > a::before {
-  content: '';
-  @apply absolute w-1 h-6 transform -translate-y-1/2 rounded top-1/2 bottom-1/2 right-1 bg-white;
+  @apply py-4 opacity-100 bg-orange text-white rounded-lg;
 }
 
 .nav__item > button:disabled {
   @apply pointer-events-none text-primary;
-}
-
-.nav__item.active > button > svg,
-.nav__item:hover > button > svg,
-.nav__item.active > a > svg,
-.nav__item:hover > a > svg {
-  @apply fill-primary;
 }
 
 .notification {

@@ -40,7 +40,7 @@ export const Sidebar: React.FC = () => {
               src={IMAGES.RestoLogo}
             />
             <div>
-              <h1>SaR-1</h1>
+              <h1 className="font-semibold">SaR-1</h1>
               <p>Cafe and Resto</p>
             </div>
           </div>

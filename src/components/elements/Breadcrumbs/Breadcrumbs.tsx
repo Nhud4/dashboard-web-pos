@@ -40,9 +40,9 @@ export const Breadcrumbs: React.FC = () => {
             {menu.length - 1 !== index ? (
               <div className="flex justify-around">
                 {!isMobile ? (
-                  <ICONS.Chevron
-                    className="-mt-1 transform scale-75 -rotate-90"
-                    fill="#247BA0"
+                  <ICONS.Arrow
+                    className="-mt-1 transform scale-75"
+                    color="#247BA0"
                   />
                 ) : null}
 
@@ -57,12 +57,14 @@ export const Breadcrumbs: React.FC = () => {
               </div>
             ) : (
               <div className="flex justify-around items-center">
-                <ICONS.Chevron
+                <ICONS.Arrow
                   className={clsx([
-                    'transform scale-75 -rotate-90',
+                    'transform scale-75',
                     isMobile ? '' : '-mt-1',
                   ])}
-                  fill="#737373"
+                  color="#737373"
+                  height={17}
+                  width={17}
                 />{' '}
                 <p className="text-neutral-500">
                   {params.get('breadcrumb') || name}
