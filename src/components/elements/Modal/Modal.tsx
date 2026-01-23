@@ -1,5 +1,6 @@
 import Button from '@components/elements/Button'
 import ICONS from '@configs/icons'
+import { useWindowWidth } from '@utils/hooks'
 import { type PropsWithChildren, useEffect } from 'react'
 
 type Props = {
@@ -22,6 +23,11 @@ export const Modal: React.FC<PropsWithChildren<Props>> = ({
     }
   }
 
+  const windowWidth = useWindowWidth()
+  const isMobile = windowWidth <= 640
+  const maxWidth = isMobile ? `${windowWidth - 32}px` : ''
+  const minWidth = isMobile ? `${windowWidth - 32}px` : '600px'
+
   useEffect(() => {
     document.addEventListener('keydown', handleEscPress)
     return () => {
@@ -32,20 +38,20 @@ export const Modal: React.FC<PropsWithChildren<Props>> = ({
 
   if (open) {
     return (
-      <div className="absolute inset-0 z-50 flex items-center justify-end bg-opacity-25 bg-black">
+      <div className="absolute inset-0 z-50 flex items-center justify-center bg-opacity-25 bg-black">
         <div
-          className="py-4 bg-white rounded-l-xl h-screen"
-          style={{ minWidth: '500px' }}
+          className="py-4 bg-white rounded-md"
+          style={{ maxHeight: isMobile ? '85vh' : '', maxWidth, minWidth }}
         >
-          <div className="flex items-center gap-4 px-6 pb-6">
+          <div className="flex items-center px-4 pb-4">
             <button onClick={onClose}>
-              <ICONS.Back />
+              <ICONS.Close fill="#000" height="28" width="28" />
             </button>
             {title ? (
               <h5 className="mt-1 ml-2 font-semibold">{title}</h5>
             ) : null}
           </div>
-          <div className="px-6 h-full">{children}</div>
+          <div className="px-4 mt-4">{children}</div>
           {onConfirm ? (
             <div className="flex items-center ml-auto space-x-2 w-fit">
               <Button

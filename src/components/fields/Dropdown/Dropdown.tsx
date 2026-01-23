@@ -78,14 +78,32 @@ export function Dropdown<
                 ref={ref}
                 styles={{
                   ...styles,
-                  control: (rest) => ({
+                  control: (rest, state) => ({
                     ...rest,
-                    border: error ? '1px solid #D62A24' : '',
+                    '&:hover': {
+                      borderColor: state.isFocused
+                        ? '#EA7C69'
+                        : rest.borderColor,
+                    },
+                    borderColor: state.isFocused ? '#EA7C69' : rest.borderColor,
+                    borderRadius: 8,
+                    boxShadow: state.isFocused
+                      ? '0 0 0 1px #EA7C69'
+                      : rest.boxShadow,
                     cursor: 'pointer',
+                    minHeight: 48,
                     minWidth: minWidth || 175,
                   }),
                   menu: (rest) => ({ ...rest, zIndex: 9999 }),
-                  option: (rest) => ({ ...rest, cursor: 'pointer' }),
+                  option: (rest, state) => ({
+                    ...rest,
+                    backgroundColor: state.isSelected
+                      ? '#EA7C69'
+                      : state.isFocused
+                        ? 'rgba(234, 124, 105, 0.2)'
+                        : rest.backgroundColor,
+                    cursor: 'pointer',
+                  }),
                 }}
                 value={value}
               />

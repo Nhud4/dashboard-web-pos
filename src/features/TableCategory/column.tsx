@@ -3,9 +3,22 @@ import PopUp from '@components/elements/PopupTable'
 import TableCell from '@components/modules/TableCell'
 import { STATUS_TABLE } from '@utils/constants'
 import { clsx } from '@utils/index'
+import { toCapitalize } from '@utils/index'
 import { type TableColumn } from 'react-data-table-component'
 
-export const columns = (loading: boolean): TableColumn<Category>[] => [
+type Props = {
+  loading: boolean
+  onDelete: (code: string) => void
+  onDetail: (data: Category) => void
+  onEdit: (data: Category) => void
+}
+
+export const columns = ({
+  loading,
+  onDelete,
+  onDetail,
+  onEdit,
+}: Props): TableColumn<Category>[] => [
   {
     cell: ({ no }) => (
       <TableCell loading={loading} skeletonWidth={35} value={no?.toString()} />
@@ -21,7 +34,11 @@ export const columns = (loading: boolean): TableColumn<Category>[] => [
   },
   {
     cell: ({ name }) => (
-      <TableCell loading={loading} skeletonWidth={35} value={name} />
+      <TableCell
+        loading={loading}
+        skeletonWidth={35}
+        value={toCapitalize(name)}
+      />
     ),
     name: 'Nama',
   },
@@ -33,29 +50,32 @@ export const columns = (loading: boolean): TableColumn<Category>[] => [
         value={totalProduct?.toString()}
       />
     ),
-    name: 'Jumlah Item',
+    name: 'Jumlah Produk',
   },
   {
-    cell: ({ status }) => (
+    cell: (val) => (
       <TableCell
         loading={loading}
         skeletonWidth={35}
         value={
           <PopUp
-            onDelete={() => {}}
-            onDetail={() => {}}
-            onEdit={() => {}}
+            actions={['detail', 'edit', 'delete']}
+            onDelete={() => onDelete(val.id)}
+            onDetail={() => onDetail(val)}
+            onEdit={() => onEdit(val)}
             value={
               <Badge
                 className={clsx([
-                  STATUS_TABLE[status as unknown as keyof typeof STATUS_TABLE]
-                    ?.style,
+                  STATUS_TABLE[
+                    val?.status as unknown as keyof typeof STATUS_TABLE
+                  ]?.style,
                   'w-32 text-center capitalize',
                 ])}
               >
                 {
-                  STATUS_TABLE[status as unknown as keyof typeof STATUS_TABLE]
-                    ?.label
+                  STATUS_TABLE[
+                    val?.status as unknown as keyof typeof STATUS_TABLE
+                  ]?.label
                 }
               </Badge>
             }
@@ -63,6 +83,6 @@ export const columns = (loading: boolean): TableColumn<Category>[] => [
         }
       />
     ),
-    name: 'Total',
+    name: 'Status',
   },
 ]

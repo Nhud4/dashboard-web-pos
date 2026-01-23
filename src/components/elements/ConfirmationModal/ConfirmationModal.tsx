@@ -34,7 +34,7 @@ export const ConfirmationModal: React.FC<PropsWithChildren<Props>> = ({
 
   if (open) {
     return (
-      <div className="absolute inset-0 z-50 flex items-center justify-center bg-opacity-25 bg-gray-3">
+      <div className="absolute inset-0 z-50 flex items-center justify-center bg-opacity-25 bg-black">
         <div
           className="py-4 bg-white rounded-2xl"
           style={{ maxWidth, minWidth }}
@@ -43,21 +43,19 @@ export const ConfirmationModal: React.FC<PropsWithChildren<Props>> = ({
           {onConfirm && confirmationType === 'delete' ? (
             <div className="flex justify-center items-center space-x-2">
               <Button
-                className="flex justify-center items-center !bg-white !border !border-primary !text-primary w-[7rem] h-[2.75rem]"
+                className="justify-center items-center w-[7rem] h-[2.75rem]"
                 onClick={() => {
                   setLoading(true)
                   onConfirm()
                 }}
+                variant="outline"
               >
-                {loading ? (
-                  <Spinner customColor="!border-b-primary" />
-                ) : (
-                  'Ya, Hapus'
-                )}
+                {loading ? <Spinner /> : 'Ya, Hapus'}
               </Button>
               <Button
-                className="flex justify-center items-center bg-white border border-primary text-primary w-[7rem] h-[2.75rem]"
+                className="justify-center w-[7rem] h-[2.75rem]"
                 onClick={onClose}
+                variant="fill"
               >
                 Batal
               </Button>
@@ -67,13 +65,13 @@ export const ConfirmationModal: React.FC<PropsWithChildren<Props>> = ({
           {onConfirm && confirmationType === 'confirmation' ? (
             <div className="flex justify-center items-center space-x-2">
               <Button
-                className="flex justify-center items-center bg-white border border-primary text-primary w-[7rem] h-[2.75rem]"
+                className="justify-center w-[7rem] h-[2.75rem]"
                 onClick={onClose}
               >
                 Batal
               </Button>
               <Button
-                className="flex justify-center items-center !bg-white !border !border-primary !text-primary w-[7rem] h-[2.75rem]"
+                className="justify-center w-[7rem] h-[2.75rem]"
                 onClick={() => {
                   setLoading(true)
                   onConfirm()

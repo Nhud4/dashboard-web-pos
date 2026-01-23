@@ -43,14 +43,18 @@ export const toUpperFirst = (value?: string) => {
   return ''
 }
 
-export const toCapitalize = (value: string) => {
-  const str = value.toLowerCase().split(' ')
-  const upper = []
-  for (let i = 0; i < str.length; i++) {
-    upper.push(`${str[i].charAt(0).toUpperCase()}${str[i].substring(1)}`)
+export const toCapitalize = (value?: string) => {
+  if (value) {
+    const str = value.toLowerCase().split(' ')
+    const upper = []
+    for (let i = 0; i < str.length; i++) {
+      upper.push(`${str[i].charAt(0).toUpperCase()}${str[i].substring(1)}`)
+    }
+
+    return upper.join(' ')
   }
 
-  return upper.join(' ')
+  return ''
 }
 
 export const base64ToBlob = (base64: string) => {

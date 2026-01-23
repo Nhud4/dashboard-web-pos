@@ -22,6 +22,7 @@ import Plus from '@assets/icons/plus.svg?react'
 import Printer from '@assets/icons/printer.svg?react'
 import Qris from '@assets/icons/qris.svg?react'
 import Reload from '@assets/icons/reload.svg?react'
+import Save from '@assets/icons/save.svg?react'
 import Search from '@assets/icons/search.svg?react'
 import Settings1 from '@assets/icons/settings 1.svg?react'
 import SidebarFlip1 from '@assets/icons/sidebar-flip 1.svg?react'
@@ -34,6 +35,7 @@ import Wallet from '@assets/icons/Wallet.svg?react'
 
 const ICONS = {
   Archive,
+  Active,
   Arrow,
   Back,
   Bags,
@@ -43,6 +45,8 @@ const ICONS = {
   ChartSquare,
   CheckCircle,
   Close,
+  Dot,
+  Edit,
   EmptyWallet,
   Eye,
   EyeSlash,
@@ -50,15 +54,13 @@ const ICONS = {
   Lock,
   Logo,
   Menu,
+  NonActive,
   Notification,
   Plus,
-  Edit,
   Printer,
-  Active,
   Qris,
-  Dot,
   Reload,
-  NonActive,
+  Save,
   Search,
   Settings1,
   SidebarFlip1,

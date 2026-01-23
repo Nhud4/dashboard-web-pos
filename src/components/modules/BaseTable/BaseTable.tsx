@@ -1,3 +1,4 @@
+import Search from '@components/fields/Search'
 import ICONS from '@configs/icons'
 import IMAGES from '@configs/images'
 import { tableStyles } from '@utils/datatable'
@@ -167,17 +168,11 @@ export const BaseTable: <T>(props: Props<T>) => React.ReactElement = ({
         </div>
         <form className={styles.tools}>
           {onSearch ? (
-            <div className={styles.search}>
-              <ICONS.Search />
-              <input
-                className="text-sm"
-                defaultValue={defaultSearch || ''}
-                onChange={({ target: { value } }) => setSearch(value)}
-                placeholder="Cari disini..."
-                type="text"
-                value={search as string}
-              />
-            </div>
+            <Search
+              defaultSearch={defaultSearch}
+              onSearch={onSearch}
+              searchValue={searchValue}
+            />
           ) : null}
           {actionComponent && (
             <div className={styles.action}>{actionComponent}</div>

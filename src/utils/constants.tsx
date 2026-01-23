@@ -169,8 +169,8 @@ export const TEMPLATE_CATEGORY = [
 ]
 
 export const STATUS_TABLE = {
-  false: { label: 'Gagal', style: 'text-danger-500 !bg-danger-50' },
-  true: { label: 'Selesai', style: 'text-success-600 !bg-success-60' },
+  false: { label: 'Non Aktif', style: 'text-danger-500 !bg-danger-50' },
+  true: { label: 'Aktif', style: 'text-success-600 !bg-success-60' },
 }
 
 export const ROLE_OPTIONS = [
