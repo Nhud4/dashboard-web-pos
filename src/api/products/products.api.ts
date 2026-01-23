@@ -13,7 +13,7 @@ export const listProducts = async (params: ProductParams) => {
 }
 
 export const detailProducts = async (code: string) => {
-  const data = await req.basicGet<ApiResponse<ProductCDetail>>(
+  const data = await req.basicGet<ApiResponse<ProductDetail>>(
     `{endpoints.main}/${code}`
   )
   return data

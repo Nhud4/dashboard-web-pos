@@ -22,7 +22,7 @@ type ProductList = {
   no: number
 }
 
-type ProductCDetail = {
+type ProductDetail = {
   id: string
   code: string
   name: string

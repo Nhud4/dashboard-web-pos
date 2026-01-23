@@ -1,23 +1,55 @@
+import Button from '@components/elements/Button'
 import BaseTable from '@components/modules/BaseTable'
+import ICONS from '@configs/icons'
+import { useQuerySlice } from '@redux/hooks'
+import { clearProducts } from '@redux/slices/products'
+import { fetchListProducts } from '@redux/slices/products/action'
 import { useState } from 'react'
 
 import { columns } from './column'
 
-const defaultMeta = { page: 1, totalData: 10, totalPage: 10, totalPerPage: 10 }
-
 export const TableProducts = () => {
-  const [meta, setMeta] = useState(defaultMeta)
+  const initialParam: ProductParams = { page: 1, size: 10 }
+  const [params, setParams] = useState(initialParam)
+
+  const { data, meta, loading } = useQuerySlice<ProductList[], ProductParams>({
+    clearSlice: clearProducts('list'),
+    initial: params,
+    key: 'list',
+    slice: 'products',
+    thunk: fetchListProducts(params),
+  })
 
   const onChangePage = (page: number) => {
-    setMeta((prev) => ({ ...prev, page }))
+    setParams((prev) => ({ ...prev, page }))
   }
 
+  const onChangeRowPerPage = (size: number) => {
+    setParams((prev) => ({ ...prev, page: 1, size }))
+  }
+
+  const onSearch = (search: string) => {
+    if (search !== null) {
+      setParams((prev) => ({ ...prev, page: 1, search }))
+    }
+  }
   return (
     <BaseTable
-      columns={columns(false)}
-      data={[]}
+      actionComponent={
+        <Button
+          leftIcon={<ICONS.Plus height={15} width={15} />}
+          onClick={() => (window.location.href = '/produk/add')}
+        >
+          Tambah Data
+        </Button>
+      }
+      columns={columns(loading)}
+      data={data}
       meta={meta}
       onChangePage={onChangePage}
+      onChangeRowPerPage={onChangeRowPerPage}
+      onSearch={onSearch}
+      searchValue={params.search}
       showTotal
       title="Daftar Produk"
     />

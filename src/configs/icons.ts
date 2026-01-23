@@ -30,12 +30,13 @@ import SingOut from '@assets/icons/sign-out.svg?react'
 import Active from '@assets/icons/tick-circle.svg?react'
 import Trash from '@assets/icons/Trash.svg?react'
 import Trending from '@assets/icons/trending.svg?react'
+import Upload from '@assets/icons/unggah.svg?react'
 import EmptyWallet from '@assets/icons/vuesax bold empty wallet.svg?react'
 import Wallet from '@assets/icons/Wallet.svg?react'
 
 const ICONS = {
-  Archive,
   Active,
+  Archive,
   Arrow,
   Back,
   Bags,
@@ -67,6 +68,7 @@ const ICONS = {
   SingOut,
   Trash,
   Trending,
+  Upload,
   Wallet,
 }
 

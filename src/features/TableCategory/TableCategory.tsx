@@ -4,7 +4,7 @@ import FormCategory from '@components/forms/FormCategory'
 import BaseTable from '@components/modules/BaseTable'
 import ICONS from '@configs/icons'
 import { ModalContext } from '@contexts/ModalContext'
-import { useAppDispatch, useMutationSlice,useQuerySlice } from '@redux/hooks'
+import { useAppDispatch, useMutationSlice, useQuerySlice } from '@redux/hooks'
 import { clearCategory } from '@redux/slices/category'
 import {
   fetchListCategory,

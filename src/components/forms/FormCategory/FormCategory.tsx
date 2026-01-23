@@ -4,7 +4,7 @@ import Dropdown from '@components/fields/Dropdown'
 import TextInput from '@components/fields/TextInput'
 import ICONS from '@configs/icons'
 import { ModalContext } from '@contexts/ModalContext'
-import { useAppDispatch,useMutationSlice } from '@redux/hooks'
+import { useAppDispatch, useMutationSlice } from '@redux/hooks'
 import { clearCategory } from '@redux/slices/category'
 import {
   fetchAddCategory,

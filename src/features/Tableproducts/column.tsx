@@ -1,52 +1,102 @@
+import Badge from '@components/elements/Badge'
+import PopUp from '@components/elements/PopupTable'
 import TableCell from '@components/modules/TableCell'
-// import { type TableColumn } from 'react-data-table-component'
-import ICONS from '@configs/icons'
+import { STATUS_TABLE } from '@utils/constants'
+import { clsx, formatIDR } from '@utils/index'
+import { toCapitalize } from '@utils/index'
+import { type TableColumn } from 'react-data-table-component'
 
-export const columns = (loading: boolean) => [
+export const columns = (loading: boolean): TableColumn<ProductList>[] => [
   {
-    cell: () => <TableCell loading={loading} skeletonWidth={35} value="1" />,
+    cell: ({ no }) => (
+      <TableCell loading={loading} skeletonWidth={35} value={no?.toString()} />
+    ),
     name: 'No',
-    width: '70px',
+    width: '50px',
   },
   {
-    cell: () => (
-      <TableCell loading={loading} skeletonWidth={35} value="10-01-2026" />
+    cell: ({ code }) => (
+      <TableCell loading={loading} skeletonWidth={35} value={code} />
     ),
-    name: 'Tanggal',
+    name: 'ID Porduk',
   },
   {
-    cell: () => (
-      <TableCell loading={loading} skeletonWidth={35} value="10-01-2026" />
+    cell: ({ name }) => (
+      <TableCell
+        loading={loading}
+        skeletonWidth={35}
+        value={toCapitalize(name)}
+      />
     ),
-    name: 'ID Pesanan',
+    name: 'Nama',
   },
   {
-    cell: () => (
-      <TableCell loading={loading} skeletonWidth={35} value="10-01-2026" />
+    cell: ({ category }) => (
+      <TableCell
+        loading={loading}
+        skeletonWidth={35}
+        value={toCapitalize(category?.name)}
+      />
     ),
-    name: 'Pelanggan',
+    name: 'Kategori',
   },
   {
-    cell: () => (
-      <TableCell loading={loading} skeletonWidth={35} value="10-01-2026" />
+    cell: ({ stock }) => (
+      <TableCell
+        loading={loading}
+        skeletonWidth={35}
+        value={stock?.toString()}
+      />
     ),
-    name: 'Pembayaran',
+    name: 'Stok',
   },
   {
-    cell: () => (
+    cell: ({ price }) => (
+      <TableCell
+        loading={loading}
+        skeletonWidth={35}
+        value={formatIDR(price || 0)}
+      />
+    ),
+    name: 'Harga',
+  },
+  {
+    cell: ({ discount }) => (
+      <TableCell loading={loading} skeletonWidth={35} value={`${discount}%`} />
+    ),
+    name: 'Diskon',
+  },
+  {
+    cell: ({ available, id, code }) => (
       <TableCell
         loading={loading}
         skeletonWidth={35}
         value={
-          <div className="flex items-center justify-between w-full">
-            <p>Rp 12.000</p>
-            <button>
-              <ICONS.Arrow />
-            </button>
-          </div>
+          <PopUp
+            actions={['delete', 'detail', 'edit']}
+            onDetail={() => {
+              window.location.href = `/produk/detail/${id}?breadcrumb=${code}`
+            }}
+            onEdit={() => {
+              window.location.href = `/produk/edit/${id}?breadcrumb=${code}`
+            }}
+            value={
+              <Badge
+                className={clsx([
+                  STATUS_TABLE[
+                    available as unknown as keyof typeof STATUS_TABLE
+                  ]?.style,
+                  'w-24 text-center capitalize',
+                ])}
+              >
+                {available ? 'Ya' : 'Tidak'}
+              </Badge>
+            }
+          />
         }
       />
     ),
-    name: 'Total',
+    name: 'Tersedia',
+    width: '200px',
   },
 ]

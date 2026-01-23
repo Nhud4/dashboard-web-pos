@@ -145,19 +145,19 @@ export function TextInput<T extends FieldValues>({
             return (
               <div
                 className={clsx([
-                  'border flex items-center justify-between rounded-lg pl-4 relative',
-                  'focus-within:outline focus-within:outline-2 focus-within:outline-orange',
+                  'border flex items-center justify-between rounded-lg relative',
+                  'focus-within:outline focus-within:outline-1 focus-within:outline-orange',
                   errorMessage
                     ? 'border-danger-500 focus-within:border-transparent'
                     : 'border-border',
-                  prefix ? 'pl-0' : '',
+                  prefix ? 'pl-0' : 'pl-4',
                   props.disabled ? 'bg-neutral-100' : '',
                 ])}
               >
                 {prefix ? (
                   <div
                     className={clsx([
-                      'flex items-center justify-center w-10 px-1 bg-opacity-25 rounded-l-lg h-[46px] bg-gray-3',
+                      'flex items-center justify-center w-16 px-1 bg-opacity-25 rounded-l-lg h-[46px] bg-neutral-2',
                       prefixClassName,
                     ])}
                   >

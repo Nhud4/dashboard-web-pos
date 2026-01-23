@@ -11,7 +11,7 @@ import {
 
 interface ProductsState {
   list: SliceState<ProductList[]>
-  detail: SliceState<ProductCDetail | null>
+  detail: SliceState<ProductDetail | null>
   add: SliceState<null>
   edit: SliceState<null>
   remove: SliceState<null>
