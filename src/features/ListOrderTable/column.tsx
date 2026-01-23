@@ -2,6 +2,7 @@ import TableCell from '@components/modules/TableCell'
 import ICONS from '@configs/icons'
 import { formatIDR } from '@utils/index'
 import { type TableColumn } from 'react-data-table-component'
+import { Link } from 'react-router-dom'
 
 export const columns = (loading: boolean): TableColumn<TransactionList>[] => [
   {
@@ -30,16 +31,16 @@ export const columns = (loading: boolean): TableColumn<TransactionList>[] => [
     name: 'Pelanggan',
   },
   {
-    cell: ({ bill }) => (
+    cell: ({ bill, id, code }) => (
       <TableCell
         loading={loading}
         skeletonWidth={35}
         value={
           <div className="flex items-center justify-between w-full">
             <p>{formatIDR(bill)}</p>
-            <button>
+            <Link to={`/transaksi/detail/${id}?breadcrumb=${code}`}>
               <ICONS.Arrow />
-            </button>
+            </Link>
           </div>
         }
       />

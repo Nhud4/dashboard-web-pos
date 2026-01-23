@@ -1,0 +1,44 @@
+.container {
+  @apply grid grid-cols-3 gap-8;
+}
+
+.header {
+  @apply grid grid-cols-3 gap-4 border-b pb-4;
+}
+
+.info > h2 {
+  @apply text-sm text-neutral-5;
+}
+
+.info > div {
+  @apply font-semibold capitalize;
+}
+
+.paymentInfo {
+  @apply flex items-center justify-between text-sm;
+}
+
+.paymentInfo > h2 {
+  @apply text-neutral-3;
+}
+
+.paymentInfo > h3,
+.paymentInfo > h4 {
+  @apply font-semibold text-orange;
+}
+
+.paymentInfo > div {
+  @apply font-semibold capitalize text-neutral-5;
+}
+
+@screen md {
+  .container {
+    @apply grid-cols-1;
+  }
+}
+
+@screen lg {
+  .container {
+    @apply grid-cols-3;
+  }
+}

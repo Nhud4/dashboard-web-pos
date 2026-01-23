@@ -69,7 +69,7 @@ export const Breadcrumbs: React.FC = () => {
                   width={17}
                 />{' '}
                 <p className="text-neutral-500">
-                  {params.get('breadcrumb') || name}
+                  {params.get('breadcrumb')?.replace('-', ' ') || name}
                 </p>
               </div>
             )}

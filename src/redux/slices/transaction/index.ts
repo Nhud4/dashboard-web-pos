@@ -1,7 +1,7 @@
 import { basicState, clearReducer, meta, thunkBuilder } from '@redux/utils'
 import { createSlice } from '@reduxjs/toolkit'
 
-import { fetchDetailTransaction,fetchListTransaction } from './action'
+import { fetchDetailTransaction, fetchListTransaction } from './action'
 
 interface TransactionState {
   list: SliceState<TransactionList[]>

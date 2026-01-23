@@ -55,7 +55,7 @@ export const IncomeChart: React.FC = (): React.ReactElement => {
   return (
     <BarChart
       actionComponent={
-        <div className="w-40 ">
+        <div className="w-40">
           <Select
             defaultValue={DASHBOARD_OPTION.income[0]}
             isSearchable={false}
