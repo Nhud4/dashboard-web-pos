@@ -48,9 +48,22 @@ const loginLoader = () => {
   return null
 }
 
-// Build routes configuration for v7
 const buildRoutes = () => {
   return routes.map((route) => {
+    if (route.children) {
+      return {
+        children: route.children.map((child) => ({
+          element: (
+            <RequireAuth redirectTo="/login">{child.component}</RequireAuth>
+          ),
+          index: child.index,
+          loader: authLoader,
+          path: child.path,
+        })),
+        path: route.path,
+      }
+    }
+
     return {
       element: route.requireAuth ? (
         <RequireAuth redirectTo="/login">{route.component}</RequireAuth>

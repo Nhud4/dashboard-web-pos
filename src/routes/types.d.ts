@@ -7,4 +7,5 @@ type Route = Partial<{
   name: string
   path: string
   requireAuth: boolean
+  index: boolean
 }>

@@ -38,11 +38,13 @@ export const Breadcrumbs: React.FC = () => {
         return (
           <li className={styles.pages} key={path}>
             {menu.length - 1 !== index ? (
-              <div className="flex justify-around">
+              <div className="flex justify-around items-center space-x-1">
                 {!isMobile ? (
                   <ICONS.Arrow
-                    className="-mt-1 transform scale-75"
+                    className="transform scale-75 -mt-1"
                     color="#247BA0"
+                    height={17}
+                    width={17}
                   />
                 ) : null}
 

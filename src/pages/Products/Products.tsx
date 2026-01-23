@@ -1,11 +1,11 @@
 import Layout from '@components/layout'
 import type React from 'react'
 
-export const Settings: React.FC = () => {
+export const Products: React.FC = () => {
   return (
-    <Layout title="Pengaturan">
+    <Layout title="Produk">
       <section className="page layout">
-        <h1>Pengaturan</h1>
+        <h1>Produk</h1>
       </section>
     </Layout>
   )

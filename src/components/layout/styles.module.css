@@ -15,5 +15,9 @@
 }
 
 .mainContent {
-  @apply mt-40;
+  @apply transition-all duration-500 mt-24 ml-20;
+}
+
+.mainContent.open {
+  @apply ml-64;
 }

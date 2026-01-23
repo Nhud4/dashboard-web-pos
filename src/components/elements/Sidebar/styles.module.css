@@ -33,9 +33,17 @@
 .container.close .nav__item > button > :not(svg),
 .container.close .nav__item > a > :not(svg),
 .container.close .nav__item > p,
-.container.close .brand > div:first-child,
+.container.close .brand > .app > div,
 .container.close .nav__item > .notification > span {
   @apply hidden;
+}
+
+.container.close .brand {
+  @apply pr-0 pl-4 pb-6;
+}
+
+.container.close .nav__item > button {
+  @apply pr-0 pl-3;
 }
 
 .nav {
@@ -55,10 +63,8 @@
   @apply text-left;
 }
 
-.nav__item > button,
-.nav__item > p,
-.nav__item > a {
-  @apply relative flex items-center w-full px-6 py-4 text-base font-medium transition-all text-primary-3;
+.nav__item > button {
+  @apply relative flex items-center w-full px-6 py-4 text-base font-medium transition-all text-primary-3 rounded-lg;
 }
 
 .nav__item > button > * + * {
