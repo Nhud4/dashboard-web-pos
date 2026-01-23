@@ -1,8 +1,0 @@
-.container {
-  @apply fixed z-50 flex flex-col justify-between right-0 bg-white border-l border-border h-screen;
-  width: 480px;
-}
-
-.title {
-  @apply text-primary-3 font-semibold text-xl;
-}
