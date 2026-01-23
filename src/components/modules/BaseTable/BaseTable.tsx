@@ -162,7 +162,7 @@ export const BaseTable: <T>(props: Props<T>) => React.ReactElement = ({
         <div className={styles.name}>
           {title ? <h4 className={titleClass}>{title}</h4> : null}
           {meta?.totalData && showTotal ? (
-            <span className="bg-cyan-100">{meta?.totalData}</span>
+            <span className="bg-orange/20">{meta?.totalData}</span>
           ) : null}
         </div>
         <form className={styles.tools}>

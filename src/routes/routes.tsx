@@ -23,13 +23,13 @@ const routes: Route[] = [
     path: '/transaksi',
   },
   {
-    component: <PAGES.Transaction />,
+    component: <PAGES.TransactionDetail />,
     name: 'Detail Transaksi',
     path: '/transaksi/detail/:id',
     requireAuth: true,
   },
   {
-    component: <PAGES.Dashboard />,
+    component: <PAGES.ProductsCategory />,
     icon: <ICONS.Menu height={20} width={20} />,
     isSidebar: true,
     name: 'Kategri Product',
@@ -37,7 +37,7 @@ const routes: Route[] = [
     requireAuth: true,
   },
   {
-    component: <PAGES.Dashboard />,
+    component: <PAGES.Products />,
     icon: <ICONS.Archive height={24} width={24} />,
     isSidebar: true,
     name: 'Product',
@@ -45,7 +45,7 @@ const routes: Route[] = [
     requireAuth: true,
   },
   {
-    component: <PAGES.Dashboard />,
+    component: <PAGES.Settings />,
     icon: <ICONS.Settings1 height={24} width={24} />,
     isSidebar: true,
     name: 'Pengaturan',

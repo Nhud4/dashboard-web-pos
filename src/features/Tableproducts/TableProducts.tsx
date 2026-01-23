@@ -5,7 +5,7 @@ import { columns } from './column'
 
 const defaultMeta = { page: 1, totalData: 10, totalPage: 10, totalPerPage: 10 }
 
-export const ListOrderTable = () => {
+export const TableProducts = () => {
   const [meta, setMeta] = useState(defaultMeta)
 
   const onChangePage = (page: number) => {
@@ -19,7 +19,7 @@ export const ListOrderTable = () => {
       meta={meta}
       onChangePage={onChangePage}
       showTotal
-      title="Daftar Transaksi"
+      title="Daftar Produk"
     />
   )
 }
