@@ -1,0 +1,103 @@
+.main {
+  @apply grid flex-grow grid-cols-2 gap-2 overflow-y-auto;
+}
+
+.summaryCards {
+  @apply col-span-2;
+}
+.part1 {
+  @apply min-w-0 min-h-0 col-span-2 pt-2;
+}
+.one {
+  @apply flex w-full gap-4;
+}
+.part2 {
+  @apply col-span-2 pt-1 pb-4;
+}
+.last {
+  @apply grid grid-cols-2 gap-4;
+}
+.incomeChart {
+  @apply w-[65%];
+}
+.bestServicesChart {
+  @apply w-[35%] rounded-xl bg-white;
+}
+
+@media screen and (max-width: 768px) {
+  .one {
+    @apply flex-wrap;
+  }
+
+  .incomeChart {
+    @apply w-full;
+  }
+
+  .bestServicesChart {
+    @apply w-full;
+  }
+
+  .last {
+    @apply grid-cols-1;
+  }
+}
+
+@screen lg {
+  .main {
+    @apply grid-cols-4;
+  }
+
+  .summaryCards {
+    @apply col-span-4;
+  }
+
+  .incomeChart {
+    @apply col-span-4;
+  }
+
+  .newCustomerChart {
+    @apply col-span-2;
+    grid-row: 3 / 7;
+  }
+
+  .newDriverTable {
+    @apply col-span-4;
+    grid-row: unset;
+  }
+
+  .bestServicesChart {
+    @apply col-span-4;
+  }
+}
+
+@screen 2xl {
+  .main {
+    @apply gap-6;
+  }
+
+  .summaryCards {
+    @apply col-span-4;
+  }
+
+  .incomeChart {
+    @apply col-span-3;
+  }
+
+  .newCustomerChart {
+    @apply col-span-1;
+    grid-row: unset;
+  }
+
+  .newDriverTable {
+    @apply col-span-2;
+    grid-row: unset;
+  }
+
+  .main > div:nth-child(n + 4) {
+    @apply col-span-2;
+  }
+
+  .bestServicesChart {
+    @apply col-span-1 col-start-4;
+  }
+}

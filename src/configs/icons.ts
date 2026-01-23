@@ -4,6 +4,7 @@ import Back from '@assets/icons/Back.svg?react'
 import Bags from '@assets/icons/bags.svg?react'
 import Card from '@assets/icons/card.svg?react'
 import Cart from '@assets/icons/cart.svg?react'
+import ChartSquare from '@assets/icons/chart-square.svg?react'
 import CheckCircle from '@assets/icons/check-circle 1.svg?react'
 import Close from '@assets/icons/close.svg?react'
 import Calendar from '@assets/icons/date-calendar.svg?react'
@@ -23,7 +24,8 @@ import Settings1 from '@assets/icons/settings 1.svg?react'
 import SidebarFlip1 from '@assets/icons/sidebar-flip 1.svg?react'
 import SingOut from '@assets/icons/sign-out.svg?react'
 import Trash from '@assets/icons/Trash.svg?react'
-import VuesaxBoldEmptyWallet from '@assets/icons/vuesax bold empty wallet.svg?react'
+import Trending from '@assets/icons/trending.svg?react'
+import EmptyWallet from '@assets/icons/vuesax bold empty wallet.svg?react'
 import Wallet from '@assets/icons/Wallet.svg?react'
 
 const ICONS = {
@@ -42,9 +44,11 @@ const ICONS = {
   Lock,
   Logo,
   Menu,
+  EmptyWallet,
   Notification,
   Plus,
   Printer,
+  ChartSquare,
   Qris,
   Reload,
   Search,
@@ -52,7 +56,7 @@ const ICONS = {
   SidebarFlip1,
   SingOut,
   Trash,
-  VuesaxBoldEmptyWallet,
+  Trending,
   Wallet,
 }
 

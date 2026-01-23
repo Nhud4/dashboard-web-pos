@@ -1,0 +1,51 @@
+.main {
+  @apply flex items-start px-4 py-6 space-x-2 bg-white rounded-xl;
+}
+
+.icon {
+  @apply relative grid w-12 h-12 rounded-full place-items-center;
+}
+
+.icon > svg {
+  @apply relative z-30 transform scale-125;
+}
+
+.icon::after {
+  content: '';
+  background-color: var(--color);
+  @apply absolute z-[20] w-14 h-14 transform -translate-y-1/2 -translate-x-1/2 rounded-full top-1/2 left-1/2 border-4 border-white;
+}
+
+.icon::before {
+  content: '';
+  background-color: var(--color);
+  @apply absolute z-[10] w-10 h-10 transform -translate-y-1/2 -translate-x-1/2 rounded-full top-1/2 left-1/2 blur-3xl;
+}
+
+@media screen and (max-width: 640px) {
+  .icon {
+    @apply hidden;
+  }
+}
+
+@screen 2xl {
+  .main {
+    @apply items-center space-x-4;
+  }
+
+  .icon {
+    @apply w-16 h-16;
+  }
+
+  .icon > svg {
+    @apply scale-150;
+  }
+
+  .icon::after {
+    @apply w-16 h-16;
+  }
+
+  .icon::before {
+    @apply w-14 h-14;
+  }
+}
