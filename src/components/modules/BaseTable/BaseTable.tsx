@@ -82,7 +82,7 @@ type Props<T> = {
   isLoading?: boolean
   meta?: PaginationMeta
   onChangePage?: (page: number) => void
-  onChangeRowPerPage?: (page: number, size: number) => void
+  onChangeRowPerPage?: (size: number) => void
   onSearch?: (search: string) => void
   onSelectedRowsChange?: (selected: {
     allSelected: boolean
@@ -236,9 +236,8 @@ export const BaseTable: <T>(props: Props<T>) => React.ReactElement = ({
             menuPlacement="auto"
             onChange={(newValue) => {
               const option = newValue as Option
-              const currentPage = meta?.page as number
               if (onChangeRowPerPage) {
-                onChangeRowPerPage(currentPage, Number(option.value))
+                onChangeRowPerPage(Number(option.value))
               }
             }}
             options={options}

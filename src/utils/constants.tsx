@@ -1,17 +1,5 @@
 import ICONS from '@configs/icons'
 
-export const SERVICES_LIST = [
-  { label: 'Kuliner', value: 'food' },
-  { label: 'Event', value: 'event' },
-  { label: 'Sembako', value: 'groceries' },
-  { label: 'Pulsa', value: 'pulsa' },
-  { label: 'Paket Data', value: 'data' },
-  { label: 'PLN', value: 'pln' },
-  { label: 'PDAM', value: 'pdam' },
-  { label: 'E-Money', value: 'e_money' },
-  { label: 'Internet Postpaid', value: 'internet_postpaid' },
-]
-
 export const REVENUE = {
   balance: {
     color: '#405089',
@@ -180,42 +168,9 @@ export const TEMPLATE_CATEGORY = [
   { label: 'Notification', value: 'notification' },
 ]
 
-export const STATUS_TRANSACTION_TABLE = {
-  '0': { label: 'Proses', style: 'text-info-500 !bg-info-50' },
-  '1': { label: 'Proses', style: 'text-info-500 !bg-info-50' },
-  '10': { label: 'Proses', style: 'text-info-500 !bg-info-50' },
-  '11': { label: 'Proses', style: 'text-info-500 !bg-info-50' },
-  '12': { label: 'Gagal', style: 'text-danger-500 !bg-danger-50' },
-  '13': { label: 'Proses', style: 'text-info-500 !bg-info-50' },
-  '14': { label: 'Belum Dibayar', style: 'text-purple-500 bg-purple-50' },
-  '15': { label: 'Gagal', style: 'text-danger-500 !bg-danger-50' },
-  '17': { label: 'Dikirim', style: 'text-[#F29718] !bg-[#ffe8c9]' },
-  '2': { label: 'Disiapkan', style: 'text-info-500 !bg-info-50' },
-  '20': { label: 'Proses', style: 'text-info-500 !bg-info-50' },
-  '21': { label: 'Proses', style: 'text-info-500 !bg-info-50' },
-  '3': { label: 'Proses', style: 'text-info-500 !bg-info-50' },
-  '4': { label: 'Selesai', style: 'text-success-600 !bg-success-60' },
-  '5': { label: 'Gagal', style: 'text-danger-500 !bg-danger-50' },
-  '6': { label: 'Gagal', style: 'text-danger-500 !bg-danger-50' },
-  '7': { label: 'Dibatalkan', style: 'text-danger-500 !bg-danger-50' },
-  '8': { label: 'Gagal', style: 'text-danger-500 !bg-danger-50' },
-  '80': { label: 'Gagal', style: 'text-danger-500 !bg-danger-50' },
-  '9': { label: 'Proses', style: 'text-info-500 !bg-info-50' },
-  ack: { label: 'Diproses', style: 'text-info-500 !bg-info-50' },
-  active: { label: 'Akitf', style: 'text-info-500 !bg-info-50' },
-  approved: { label: 'Disetujui', style: 'text-success-600 !bg-success-60' },
-  cancel: { label: 'Dibatalkan', style: 'text-danger-500 !bg-danger-50' },
-  canceled: { label: 'Dibatalkan', style: 'text-danger-500 !bg-danger-50' },
-  failed: { label: 'Gagal', style: 'text-danger-500 !bg-danger-50' },
-  inactive: { label: 'Non-Akitf', style: 'text-danger-500 bg-danger-50' },
-  pending: { label: 'Diproses', style: 'text-info-500 !bg-info-50' },
-  redeem: { label: 'Redeem', style: 'text-purple-500 !bg-purple-50' },
-  rejected: { label: 'Ditolak', style: 'text-danger-500 !bg-danger-50' },
-  sent: { label: 'Dikirim', style: 'text-success-600 !bg-success-60' },
-  success: { label: 'Selesai', style: 'text-success-600 !bg-success-60' },
-  sukses: { label: 'Selesai', style: 'text-success-600 !bg-success-60' },
-  unpaid: { label: 'Belum Dibayar', style: 'text-purple-500 bg-purple-50' },
-  waiting: { label: 'Menunggu', style: 'text-purple-500 bg-purple-50' },
+export const STATUS_TABLE = {
+  false: { label: 'Gagal', style: 'text-danger-500 !bg-danger-50' },
+  true: { label: 'Selesai', style: 'text-success-600 !bg-success-60' },
 }
 
 export const ROLE_OPTIONS = [

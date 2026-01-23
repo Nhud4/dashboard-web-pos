@@ -1,6 +1,6 @@
 type TransactionParams = TableParams & {
-  paymentStatus: string
-  date: string
+  paymentStatus?: string
+  date?: string
 }
 
 type TransactionUser = {
@@ -29,6 +29,7 @@ type TransactionList = {
   createdAt: string
   paymentStatus: string
   user: TransactionUser
+  no: number
 }
 
 type TransactionDetail = {

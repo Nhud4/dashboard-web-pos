@@ -5,7 +5,7 @@ const endpoints = {
 }
 
 export const listTransaction = async (params: TransactionParams) => {
-  const data = await req.basicGet<ApiResponse<TransactionList[]>>(
+  const data = await req.get<ApiResponse<TransactionList[]>>(
     endpoints.main,
     params
   )
@@ -13,7 +13,7 @@ export const listTransaction = async (params: TransactionParams) => {
 }
 
 export const detailTransaction = async (code: string) => {
-  const data = await req.basicGet<ApiResponse<TransactionDetail>>(
+  const data = await req.get<ApiResponse<TransactionDetail>>(
     `${endpoints.main}/${code}`
   )
   return data

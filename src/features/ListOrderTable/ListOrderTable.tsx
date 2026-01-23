@@ -1,23 +1,46 @@
 import BaseTable from '@components/modules/BaseTable'
+import { useQuerySlice } from '@redux/hooks'
+import { clearTransaction } from '@redux/slices/transaction'
+import { fetchListTransaction } from '@redux/slices/transaction/action'
 import { useState } from 'react'
 
 import { columns } from './column'
 
-const defaultMeta = { page: 1, totalData: 10, totalPage: 10, totalPerPage: 10 }
-
 export const ListOrderTable = () => {
-  const [meta, setMeta] = useState(defaultMeta)
+  const initialParams: TransactionParams = {
+    page: 1,
+    size: 10,
+  }
+
+  const [params, setParams] = useState(initialParams)
+
+  const { data, meta, loading } = useQuerySlice<
+    TransactionList[],
+    TransactionParams
+  >({
+    clearSlice: clearTransaction('list'),
+    initial: params,
+    key: 'list',
+    slice: 'transaction',
+    thunk: fetchListTransaction(params),
+  })
 
   const onChangePage = (page: number) => {
-    setMeta((prev) => ({ ...prev, page }))
+    setParams((prev) => ({ ...prev, page }))
+  }
+
+  const onChangeRowPerPage = (size: number) => {
+    setParams((prev) => ({ ...prev, page: 1, size }))
   }
 
   return (
     <BaseTable
-      columns={columns(false)}
-      data={[]}
+      columns={columns(loading)}
+      data={data}
+      isLoading={loading}
       meta={meta}
       onChangePage={onChangePage}
+      onChangeRowPerPage={onChangeRowPerPage}
       showTotal
       title="Daftar Transaksi"
     />

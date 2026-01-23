@@ -38,6 +38,17 @@ module.exports = {
           500: '#D62A24',
           DEFAULT: '#F26464' 
         },
+        info: {
+          50: '#E5F3FC',
+          500: '#008BE2',
+        },
+        success: { 
+          50: '#EAF7EA',
+          60: '#C3FFBB',
+          500:'#2CB22E',
+          600: '#0F8700',
+          DEFAULT: '#4BDE97',
+         },
       },
       boxShadow: {
         card: '0px 4px 10px 0px rgba(0, 0, 0, 0.15)',

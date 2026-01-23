@@ -19,6 +19,7 @@ type ProductList = {
   available: boolean
   img: string
   category: ProductCatData
+  no: number
 }
 
 type ProductCDetail = {

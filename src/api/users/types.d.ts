@@ -7,6 +7,7 @@ type User = {
   active: boolean
   lastLogin?: string
   companyId?: number
+  no: number
 }
 
 type LoginRequest = {

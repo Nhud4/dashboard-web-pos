@@ -7,7 +7,10 @@ import Cart from '@assets/icons/cart.svg?react'
 import ChartSquare from '@assets/icons/chart-square.svg?react'
 import CheckCircle from '@assets/icons/check-circle 1.svg?react'
 import Close from '@assets/icons/close.svg?react'
+import NonActive from '@assets/icons/close-list.svg?react'
 import Calendar from '@assets/icons/date-calendar.svg?react'
+import Dot from '@assets/icons/dot.svg?react'
+import Edit from '@assets/icons/edit.svg?react'
 import Eye from '@assets/icons/eye.svg?react'
 import EyeSlash from '@assets/icons/eye-slash.svg?react'
 import Home from '@assets/icons/home.svg?react'
@@ -23,6 +26,7 @@ import Search from '@assets/icons/search.svg?react'
 import Settings1 from '@assets/icons/settings 1.svg?react'
 import SidebarFlip1 from '@assets/icons/sidebar-flip 1.svg?react'
 import SingOut from '@assets/icons/sign-out.svg?react'
+import Active from '@assets/icons/tick-circle.svg?react'
 import Trash from '@assets/icons/Trash.svg?react'
 import Trending from '@assets/icons/trending.svg?react'
 import EmptyWallet from '@assets/icons/vuesax bold empty wallet.svg?react'
@@ -48,9 +52,13 @@ const ICONS = {
   Menu,
   Notification,
   Plus,
+  Edit,
   Printer,
+  Active,
   Qris,
+  Dot,
   Reload,
+  NonActive,
   Search,
   Settings1,
   SidebarFlip1,

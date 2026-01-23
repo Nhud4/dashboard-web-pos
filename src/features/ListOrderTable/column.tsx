@@ -1,45 +1,42 @@
 import TableCell from '@components/modules/TableCell'
-// import { type TableColumn } from 'react-data-table-component'
 import ICONS from '@configs/icons'
+import { formatIDR } from '@utils/index'
+import { type TableColumn } from 'react-data-table-component'
 
-export const columns = (loading: boolean) => [
+export const columns = (loading: boolean): TableColumn<TransactionList>[] => [
   {
-    cell: () => <TableCell loading={loading} skeletonWidth={35} value="1" />,
+    cell: ({ no }) => (
+      <TableCell loading={loading} skeletonWidth={35} value={no?.toString()} />
+    ),
     name: 'No',
-    width: '70px',
+    width: '50px',
   },
   {
-    cell: () => (
-      <TableCell loading={loading} skeletonWidth={35} value="10-01-2026" />
+    cell: ({ transactionDate }) => (
+      <TableCell loading={loading} skeletonWidth={35} value={transactionDate} />
     ),
     name: 'Tanggal',
   },
   {
-    cell: () => (
-      <TableCell loading={loading} skeletonWidth={35} value="10-01-2026" />
+    cell: ({ code }) => (
+      <TableCell loading={loading} skeletonWidth={35} value={code} />
     ),
     name: 'ID Pesanan',
   },
   {
-    cell: () => (
-      <TableCell loading={loading} skeletonWidth={35} value="10-01-2026" />
+    cell: ({ customerName }) => (
+      <TableCell loading={loading} skeletonWidth={35} value={customerName} />
     ),
     name: 'Pelanggan',
   },
   {
-    cell: () => (
-      <TableCell loading={loading} skeletonWidth={35} value="10-01-2026" />
-    ),
-    name: 'Pembayaran',
-  },
-  {
-    cell: () => (
+    cell: ({ bill }) => (
       <TableCell
         loading={loading}
         skeletonWidth={35}
         value={
           <div className="flex items-center justify-between w-full">
-            <p>Rp 12.000</p>
+            <p>{formatIDR(bill)}</p>
             <button>
               <ICONS.Arrow />
             </button>
