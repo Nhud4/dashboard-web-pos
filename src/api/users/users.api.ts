@@ -12,3 +12,30 @@ export const login = async (payload: LoginRequest) => {
   )
   return data
 }
+
+export const listUser = async (params: TableParams) => {
+  const data = await req.basicGet<ApiResponse<User[]>>(endpoints.users, params)
+  return data
+}
+
+export const detailUser = async (code: string) => {
+  const data = await req.basicGet<ApiResponse<User>>(
+    `${endpoints.users}/${code}`
+  )
+  return data
+}
+
+export const addUser = async (payload: CreateUserRequest) => {
+  const data = await req.post(endpoints.users, payload)
+  return data
+}
+
+export const editUser = async (code: string, payload: UpdateUserRequest) => {
+  const data = await req.put(`${endpoints.users}/${code}`, payload)
+  return data
+}
+
+export const removeUser = async (code: string) => {
+  const data = await req.remove(`${endpoints.users}/${code}`)
+  return data
+}
