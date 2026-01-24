@@ -42,24 +42,6 @@
   }
 }
 
-@screen md {
-  .one {
-    @apply flex-wrap;
-  }
-
-  .incomeChart {
-    @apply w-full;
-  }
-
-  .bestServicesChart {
-    @apply w-full;
-  }
-
-  .last {
-    @apply grid-cols-1;
-  }
-}
-
 @screen lg {
   .main {
     @apply grid-cols-4;
