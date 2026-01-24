@@ -6,7 +6,6 @@ const productSchema = z.object({
   categoryId: z.any(),
   description: z.string(),
   discount: z.number(),
-  discountType: z.string(),
   hpp: z.number().positive('HPP harus lebih dari 0'),
   img: z.any(),
   name: z

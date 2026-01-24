@@ -1,0 +1,11 @@
+.tableData > tr > th {
+  @apply text-neutral-5 text-left font-normal pr-4 pb-2;
+}
+
+.tableData > tr > td {
+  @apply flex gap-2 text-primary-3 font-medium pb-2;
+}
+
+.tableData > tr > td::before {
+  content: ': ';
+}

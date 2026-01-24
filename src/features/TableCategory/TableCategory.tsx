@@ -93,30 +93,32 @@ export const TableCategory = () => {
   })
 
   return (
-    <BaseTable
-      actionComponent={
-        <Button
-          leftIcon={<ICONS.Plus height={18} width={18} />}
-          onClick={onAdd}
-        >
-          Tambah Data
-        </Button>
-      }
-      columns={columns({
-        loading,
-        onDelete: (code) => onDelete(code),
-        onDetail: (value) => onDetail(value),
-        onEdit: (value) => onEdit(value),
-      })}
-      data={data}
-      isLoading={loading}
-      meta={meta}
-      onChangePage={onChangePage}
-      onChangeRowPerPage={onChangeRowPerPage}
-      onSearch={onSearch}
-      searchValue={params.search}
-      showTotal
-      title="Daftar Kategori"
-    />
+    <div>
+      <BaseTable
+        actionComponent={
+          <Button
+            leftIcon={<ICONS.Plus height={18} width={18} />}
+            onClick={onAdd}
+          >
+            Tambah Data
+          </Button>
+        }
+        columns={columns({
+          loading,
+          onDelete: (code) => onDelete(code),
+          onDetail: (value) => onDetail(value),
+          onEdit: (value) => onEdit(value),
+        })}
+        data={data}
+        isLoading={loading}
+        meta={meta}
+        onChangePage={onChangePage}
+        onChangeRowPerPage={onChangeRowPerPage}
+        onSearch={onSearch}
+        searchValue={params.search}
+        showTotal
+        title="Daftar Kategori"
+      />
+    </div>
   )
 }

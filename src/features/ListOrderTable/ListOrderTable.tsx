@@ -34,15 +34,17 @@ export const ListOrderTable = () => {
   }
 
   return (
-    <BaseTable
-      columns={columns(loading)}
-      data={data}
-      isLoading={loading}
-      meta={meta}
-      onChangePage={onChangePage}
-      onChangeRowPerPage={onChangeRowPerPage}
-      showTotal
-      title="Daftar Transaksi"
-    />
+    <div>
+      <BaseTable
+        columns={columns(loading)}
+        data={data}
+        isLoading={loading}
+        meta={meta}
+        onChangePage={onChangePage}
+        onChangeRowPerPage={onChangeRowPerPage}
+        showTotal
+        title="Daftar Transaksi"
+      />
+    </div>
   )
 }

@@ -14,7 +14,7 @@ export const listProducts = async (params: ProductParams) => {
 
 export const detailProducts = async (code: string) => {
   const data = await req.basicGet<ApiResponse<ProductDetail>>(
-    `{endpoints.main}/${code}`
+    `${endpoints.main}/${code}`
   )
   return data
 }
@@ -30,6 +30,6 @@ export const editProduct = async (code: string, payload: ProductPayload) => {
 }
 
 export const removeProduct = async (code: string) => {
-  const data = await req.remove(`{endpoints.main}/${code}`)
+  const data = await req.remove(`${endpoints.main}/${code}`)
   return data
 }

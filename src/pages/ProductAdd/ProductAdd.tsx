@@ -6,7 +6,7 @@ export const ProductAdd: React.FC = () => {
   return (
     <Layout title="Tambah Produk">
       <section className="page layout">
-        <FormProduct />
+        <FormProduct variant="add" />
       </section>
     </Layout>
   )

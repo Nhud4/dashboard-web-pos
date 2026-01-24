@@ -6,7 +6,10 @@ import { clsx, formatIDR } from '@utils/index'
 import { toCapitalize } from '@utils/index'
 import { type TableColumn } from 'react-data-table-component'
 
-export const columns = (loading: boolean): TableColumn<ProductList>[] => [
+export const columns = (
+  loading: boolean,
+  onDelete: (code: string) => void
+): TableColumn<ProductList>[] => [
   {
     cell: ({ no }) => (
       <TableCell loading={loading} skeletonWidth={35} value={no?.toString()} />
@@ -74,6 +77,7 @@ export const columns = (loading: boolean): TableColumn<ProductList>[] => [
         value={
           <PopUp
             actions={['delete', 'detail', 'edit']}
+            onDelete={() => onDelete(`${id}`)}
             onDetail={() => {
               window.location.href = `/produk/detail/${id}?breadcrumb=${code}`
             }}
