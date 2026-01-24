@@ -5,7 +5,7 @@ import type React from 'react'
 export const ProductAdd: React.FC = () => {
   return (
     <Layout title="Tambah Produk">
-      <section className="page layout">
+      <section className="page layout overflow-y-auto">
         <FormProduct variant="add" />
       </section>
     </Layout>

@@ -1,5 +1,5 @@
 .container {
-  @apply grid w-full grid-cols-4 col-span-2 gap-6;
+  @apply grid w-full grid-cols-3 col-span-2 gap-6;
 }
 
 @media screen and (max-width: 768px) {

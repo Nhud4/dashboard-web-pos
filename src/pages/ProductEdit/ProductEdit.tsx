@@ -19,7 +19,7 @@ export const ProductEdit: React.FC = () => {
 
   return (
     <Layout title="Ubah Produk">
-      <section className="page layout">
+      <section className="page layout overflow-y-auto">
         <FormProduct data={data} dataLoad={loading} id={id} variant="edit" />
       </section>
     </Layout>

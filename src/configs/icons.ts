@@ -27,10 +27,12 @@ import Search from '@assets/icons/search.svg?react'
 import Settings1 from '@assets/icons/settings 1.svg?react'
 import SidebarFlip1 from '@assets/icons/sidebar-flip 1.svg?react'
 import SingOut from '@assets/icons/sign-out.svg?react'
+import Store from '@assets/icons/store.svg?react'
 import Active from '@assets/icons/tick-circle.svg?react'
 import Trash from '@assets/icons/Trash.svg?react'
 import Trending from '@assets/icons/trending.svg?react'
 import Upload from '@assets/icons/unggah.svg?react'
+import User from '@assets/icons/user.svg?react'
 import EmptyWallet from '@assets/icons/vuesax bold empty wallet.svg?react'
 import Wallet from '@assets/icons/Wallet.svg?react'
 
@@ -66,9 +68,11 @@ const ICONS = {
   Settings1,
   SidebarFlip1,
   SingOut,
+  Store,
   Trash,
   Trending,
   Upload,
+  User,
   Wallet,
 }
 

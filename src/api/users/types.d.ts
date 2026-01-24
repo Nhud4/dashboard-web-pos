@@ -27,6 +27,7 @@ type CreateUserRequest = {
   username: string
   password: string
   companyId?: number
+  active: string
 }
 
 type UpdateUserRequest = {

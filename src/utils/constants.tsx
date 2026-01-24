@@ -68,3 +68,16 @@ export const DELIVERY_TYPE_OPS = [
   { label: 'Take Way', value: 'out' },
   { label: 'Paket', value: 'batch' },
 ]
+
+export const ROLE_LIST = {
+  cashier: 'Kasir',
+  inventory: 'Gudang',
+  kitchen: 'Dapur',
+  manager: 'Manager',
+  waiters: 'Waiters',
+}
+
+export const ROLE_OPTIONS = Object.entries(ROLE_LIST).map(([key, label]) => ({
+  label,
+  value: key,
+}))

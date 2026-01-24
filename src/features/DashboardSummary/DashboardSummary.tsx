@@ -41,7 +41,7 @@ export const DashboardSummary: React.FC<Props> = ({ className, ...props }) => {
       <li>
         <TotalCard
           color={REVENUE.balance.color}
-          customName="Saldo Pihak Ketiga"
+          customName="Total Transaksi"
           icon={REVENUE.balance.icon}
           loading={isLoading}
           percentage="0"
@@ -52,22 +52,11 @@ export const DashboardSummary: React.FC<Props> = ({ className, ...props }) => {
       <li>
         <TotalCard
           color={REVENUE.customer.color}
+          customName="Total Produk"
           icon={REVENUE.customer.icon}
           loading={isLoading}
-          name="Customer"
           percentage="0"
           status={percentage.customer === -1 ? 'danger' : 'success'}
-          value="0"
-        />
-      </li>
-      <li>
-        <TotalCard
-          color={REVENUE.merchant.color}
-          icon={REVENUE.merchant.icon}
-          loading={isLoading}
-          name="Merchant"
-          percentage="0"
-          status={percentage.merchant === -1 ? 'danger' : 'success'}
           value="0"
         />
       </li>

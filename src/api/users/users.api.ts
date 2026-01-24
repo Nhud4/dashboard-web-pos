@@ -14,19 +14,17 @@ export const login = async (payload: LoginRequest) => {
 }
 
 export const listUser = async (params: TableParams) => {
-  const data = await req.basicGet<ApiResponse<User[]>>(endpoints.users, params)
+  const data = await req.get<ApiResponse<User[]>>(endpoints.users, params)
   return data
 }
 
 export const detailUser = async (code: string) => {
-  const data = await req.basicGet<ApiResponse<User>>(
-    `${endpoints.users}/${code}`
-  )
+  const data = await req.get<ApiResponse<User>>(`${endpoints.users}/${code}`)
   return data
 }
 
 export const addUser = async (payload: CreateUserRequest) => {
-  const data = await req.post(endpoints.users, payload)
+  const data = await req.basicPost(endpoints.users, payload)
   return data
 }
 

@@ -9,7 +9,7 @@ import styles from './styles.module.css'
 export const Dashboard: React.FC = () => {
   return (
     <Layout title="Dashboard">
-      <section className="grid flex-grow grid-cols-2 gap-2 overflow-y-auto layout">
+      <section className="grid flex-grow grid-cols-2 gap-6 overflow-y-auto layout">
         <DashboardSummary />
         <div className={styles.part1}>
           <div className={styles.one}>
