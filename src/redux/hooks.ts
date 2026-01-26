@@ -22,22 +22,33 @@ export const useQuerySlice = <T, P>({
   initial,
 }: QuerySliceParams<RootState, T>) => {
   const { setNotify } = useContext(NotifyContext)
+  const { setModal } = useContext(ModalContext)
+
   const dispatch = useAppDispatch()
   const sliceState = useAppSelector((state) => {
     const stateObj = state[slice]
     return stateObj[key as keyof typeof stateObj] as unknown as SliceState<T>
   })
-  const { error, message, success, data } = sliceState
+  const { error, message, success, data, code } = sliceState
 
   useEffect(() => {
     if (clearSlice) {
       if (error) {
-        setNotify({
-          callback: () => dispatch(clearSlice),
-          color: 'error',
-          isOpen: true,
-          message,
-        })
+        if ([401, 403].includes(code)) {
+          setModal({
+            confirmationType: 'expired',
+            content: '',
+            open: true,
+            type: 'confirmation',
+          })
+        } else {
+          setNotify({
+            callback: () => dispatch(clearSlice),
+            color: 'error',
+            isOpen: true,
+            message,
+          })
+        }
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -69,53 +80,57 @@ export const useMutationSlice = <T>({
   onError,
   clearSlice,
 }: MutationSliceParams<RootState, T>) => {
-  const { onClose: onCloseModal } = useContext(ModalContext)
+  const { setModal, onClose: onCloseModal } = useContext(ModalContext)
   const { setNotify } = useContext(NotifyContext)
+
   const sliceState = useAppSelector((state) => {
     const stateObj = state[slice]
     return stateObj[key as keyof typeof stateObj] as unknown as SliceState<T>
   })
-  const { error, success, message, data } = sliceState
+  const { error, success, message, data, code } = sliceState
 
   const customMessage = {
     add: 'Data berhasil ditambahkan',
-    bulkMessage: 'Pesan berhasil dikirim',
     edit: 'Data berhasil diperbarui',
-    editBatch: 'Data berhasil diperbarui',
-    evidence: 'Pesanan berhasil diselesaikan',
     remove: 'Data berhasil dihapus',
-    removeBatch: 'Data berhasil dihapus',
-    removeLimitUpdate: 'Data berhasil diperbarui',
-    send: 'Pesan berhasil dikirim',
-    sendBulk: 'Pesan berhasil dikirim',
-    sendBulkNoImg: 'Pesan berhasil dikirim',
-    sendWithoutImage: 'Pesan berhasil dikirim',
-    sync: 'Data berhasil disinkronisasi',
-    syncMPost: 'Data berhasil disinkronisasi',
   }
 
   useEffect(() => {
     if (clearSlice) {
-      if (error || success) {
-        if (success) {
-          onCloseModal()
-          if (onSuccess) onSuccess(data)
-          clearSlice()
-        }
-
-        setNotify({
-          callback: () => {
-            if (onError) onError()
-            clearSlice()
-          },
-          color: error ? 'error' : 'success',
-          isOpen: true,
-          message: error ? message : customMessage[key],
-        })
+      if (success) {
+        onCloseModal()
+        if (onSuccess) onSuccess(data)
+        clearSlice()
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [error, success, message, data])
+  }, [success, data])
+
+  useEffect(() => {
+    if (clearSlice) {
+      if (error) {
+        if ([401, 403].includes(code)) {
+          setModal({
+            confirmationType: 'expired',
+            content: '',
+            open: true,
+            type: 'confirmation',
+          })
+        } else {
+          setNotify({
+            callback: () => {
+              if (onError) onError()
+              clearSlice()
+            },
+            color: error ? 'error' : 'success',
+            isOpen: true,
+            message: error ? message : customMessage[key],
+          })
+        }
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [error, message])
 
   return { ...sliceState, onCloseModal }
 }

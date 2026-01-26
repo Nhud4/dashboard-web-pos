@@ -34,10 +34,6 @@ export const baseFetch = async (
     signal: controller.signal,
   }).then((response) => {
     clearTimeout(timeoutId)
-    if ([401].includes(response.status)) {
-      clearStorage()
-      window.location.href = '/'
-    }
     return response
   })
 }
