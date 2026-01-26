@@ -1,7 +1,7 @@
 import Badge from '@components/elements/Badge'
 import PopUp from '@components/elements/PopupTable'
 import TableCell from '@components/modules/TableCell'
-import { ROLE_LIST,STATUS_TABLE } from '@utils/constants'
+import { ROLE_LIST, STATUS_TABLE } from '@utils/constants'
 import { clsx, toCapitalize } from '@utils/index'
 import { type TableColumn } from 'react-data-table-component'
 

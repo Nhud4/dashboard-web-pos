@@ -9,7 +9,7 @@ import { clearUsers } from '@redux/slices/users'
 import { fetchAddUser, fetchEditUser } from '@redux/slices/users/action'
 import { ROLE_OPTIONS, STATUS_OPTIONS } from '@utils/constants'
 import type React from 'react'
-import { useContext,useMemo } from 'react'
+import { useContext, useMemo } from 'react'
 import { useForm } from 'react-hook-form'
 
 import { addUserResolver, updateUserResolver } from './validator'
