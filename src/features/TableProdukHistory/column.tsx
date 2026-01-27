@@ -1,8 +1,9 @@
 import TableCell from '@components/modules/TableCell'
-import { toCapitalize } from '@utils/index'
 import { type TableColumn } from 'react-data-table-component'
 
-export const columns = (loading: boolean): TableColumn<ProductList>[] => [
+export const columns = (
+  loading: boolean
+): TableColumn<ProductHistoryData>[] => [
   {
     cell: ({ no }) => (
       <TableCell loading={loading} skeletonWidth={35} value={no?.toString()} />
@@ -11,28 +12,20 @@ export const columns = (loading: boolean): TableColumn<ProductList>[] => [
     width: '50px',
   },
   {
-    cell: ({ code }) => (
-      <TableCell loading={loading} skeletonWidth={35} value={code} />
+    cell: ({ date }) => (
+      <TableCell loading={loading} skeletonWidth={35} value={date} />
     ),
     name: 'Tanggal',
   },
   {
-    cell: ({ name }) => (
-      <TableCell
-        loading={loading}
-        skeletonWidth={35}
-        value={toCapitalize(name)}
-      />
+    cell: ({ totalQty }) => (
+      <TableCell loading={loading} skeletonWidth={35} value={totalQty} />
     ),
-    name: 'Total Transaksi',
+    name: 'Jumlah',
   },
   {
-    cell: ({ category }) => (
-      <TableCell
-        loading={loading}
-        skeletonWidth={35}
-        value={toCapitalize(category?.name)}
-      />
+    cell: ({ totalAmount }) => (
+      <TableCell loading={loading} skeletonWidth={35} value={totalAmount} />
     ),
     name: 'Pendapatan',
   },

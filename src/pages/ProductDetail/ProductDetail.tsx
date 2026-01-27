@@ -8,6 +8,8 @@ import TableProductHistory from '@features/TableProdukHistory'
 import { useQuerySlice } from '@redux/hooks'
 import { clearProducts } from '@redux/slices/products'
 import { fetchDetailProducts } from '@redux/slices/products/action'
+import { clearSales } from '@redux/slices/sales'
+import { fetchSummarySales } from '@redux/slices/sales/action'
 import { formatIDR } from '@utils/index'
 import type React from 'react'
 import { useParams } from 'react-router-dom'
@@ -26,6 +28,17 @@ export const ProductDetail: React.FC = () => {
       thunk: fetchDetailProducts(id),
     }
   )
+
+  const { data: sales, loading: loadSales } = useQuerySlice<
+    SummarySalesData,
+    SummarySalesParams
+  >({
+    clearSlice: clearSales('summarySales'),
+    initial: id,
+    key: 'summarySales',
+    slice: 'sales',
+    thunk: fetchSummarySales({ productId: id }),
+  })
 
   const percentageFormat = (number: number) => {
     if (number > 100) {
@@ -124,22 +137,24 @@ export const ProductDetail: React.FC = () => {
               <TotalCard
                 color="#3297FF"
                 icon={<ICONS.EmptyWallet color="#fff" height={24} width={24} />}
-                loading={false}
+                loading={loadSales}
                 name="Pendapatan"
-                percentage={percentageFormat(Math.abs(0))}
+                percentage={percentageFormat(Math.abs(sales.revenue.growth))}
                 status="success"
-                value={formatIDR(0)}
+                value={formatIDR(sales.revenue.total)}
               />
             </li>
             <li>
               <TotalCard
                 color="#237B9F"
                 icon={<ICONS.EmptyWallet color="#fff" height={24} width={24} />}
-                loading={false}
+                loading={loadSales}
                 name="Transaksi"
-                percentage={percentageFormat(Math.abs(0))}
+                percentage={percentageFormat(
+                  Math.abs(sales.transaction.growth)
+                )}
                 status="success"
-                value={formatIDR(0)}
+                value={`${sales.transaction.total}`}
               />
             </li>
           </ul>

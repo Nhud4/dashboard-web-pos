@@ -1,4 +1,7 @@
 import BarChart from '@components/modules/BarChart'
+import { useQuerySlice } from '@redux/hooks'
+import { clearSales } from '@redux/slices/sales'
+import { fetchSummaryYear } from '@redux/slices/sales/action'
 import { baseChartOptions, labels } from '@utils/chart'
 import { DASHBOARD_OPTION } from '@utils/constants'
 import { type ChartData, type ChartOptions } from 'chart.js'
@@ -9,6 +12,17 @@ export const IncomeChart: React.FC = (): React.ReactElement => {
   const [params, setParams] = useState('thisYear')
   const year = new Date().getFullYear()
 
+  const { data: summary } = useQuerySlice<
+    SummaryYearsData[],
+    SummaryYearsParams
+  >({
+    clearSlice: clearSales('summaryYear'),
+    initial: year,
+    key: 'summaryYear',
+    slice: 'sales',
+    thunk: fetchSummaryYear({ year }),
+  })
+
   const data: ChartData<'bar', number[], string> = {
     datasets: [
       {
@@ -16,7 +30,7 @@ export const IncomeChart: React.FC = (): React.ReactElement => {
         barPercentage: 0.5,
         borderRadius: 10,
         borderSkipped: false,
-        data: [10, 20, 40, 16, 17, 90, 80, 100, 200, 25, 50, 70],
+        data: summary.map((item) => item.revenue),
         label: 'Jumlah IDR',
       },
     ],

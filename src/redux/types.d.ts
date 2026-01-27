@@ -18,7 +18,7 @@ type SliceReducer<S> = {
 type QuerySliceParams<T, S> = {
   clearSlice?: ActionCreatorWithPayload
   initial?: unknown
-  key: 'detail' | 'list'
+  key: 'detail' | 'list' | 'productHistory' | 'summarySales' | 'summaryYear'
   onSuccess?: (data: S) => void
   slice: keyof T
   thunk: AsyncThunk
