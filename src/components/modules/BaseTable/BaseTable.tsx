@@ -26,11 +26,11 @@ const customStyles: StylesConfig = {
   control: (provided, state) => ({
     ...provided,
     '&:hover': {
-      borderColor: state.isFocused ? '#EA7C69' : provided.borderColor,
+      borderColor: state.isFocused ? '#F97415' : provided.borderColor,
     },
-    borderColor: state.isFocused ? '#EA7C69' : provided.borderColor,
+    borderColor: state.isFocused ? '#F97415' : provided.borderColor,
     borderRadius: 8,
-    boxShadow: state.isFocused ? '0 0 0 1px #EA7C69' : provided.boxShadow,
+    boxShadow: state.isFocused ? '0 0 0 1px #F97415' : provided.boxShadow,
     display: 'flex',
     height: 48,
     width: 73,
@@ -45,7 +45,7 @@ const customStyles: StylesConfig = {
   option: (provided, state) => ({
     ...provided,
     backgroundColor: state.isSelected
-      ? '#EA7C69'
+      ? '#F97415'
       : state.isFocused
         ? 'rgba(234, 124, 105, 0.2)'
         : provided.backgroundColor,

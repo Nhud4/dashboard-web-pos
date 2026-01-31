@@ -18,7 +18,7 @@
   @apply grid grid-cols-2 gap-4;
 }
 .incomeChart {
-  @apply w-[65%];
+  @apply w-[100%];
 }
 .bestServicesChart {
   @apply w-[35%] rounded-xl bg-white;

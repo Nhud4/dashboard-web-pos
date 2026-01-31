@@ -27,8 +27,8 @@ export const DashboardSummary: React.FC<Props> = ({ className, ...props }) => {
   const isLoading = loading
   const percentage = {
     customer: Math.sign(0),
-    revenue: Math.sign(data.revenue.growth),
-    transaction: Math.sign(data.transaction.growth),
+    revenue: Math.sign(data?.revenue?.growth),
+    transaction: Math.sign(data?.transaction?.growth),
   }
 
   const percentageFormat = (number: number) => {
@@ -48,9 +48,9 @@ export const DashboardSummary: React.FC<Props> = ({ className, ...props }) => {
           icon={REVENUE.revenue.icon}
           loading={isLoading}
           name="Pendapatan"
-          percentage={percentageFormat(Math.abs(data.revenue.growth))}
+          percentage={percentageFormat(Math.abs(data?.revenue?.growth))}
           status={percentage.revenue === -1 ? 'danger' : 'success'}
-          value={formatIDR(data.revenue.total)}
+          value={formatIDR(data?.revenue?.total || 0)}
         />
       </li>
       <li>
@@ -59,9 +59,9 @@ export const DashboardSummary: React.FC<Props> = ({ className, ...props }) => {
           customName="Total Transaksi"
           icon={REVENUE.balance.icon}
           loading={isLoading}
-          percentage={percentageFormat(Math.abs(data.transaction.growth))}
+          percentage={percentageFormat(Math.abs(data?.transaction?.growth))}
           status={percentage.transaction === -1 ? 'danger' : 'success'}
-          value={`${data.transaction.total}`}
+          value={`${data?.transaction?.total || 0}`}
         />
       </li>
       <li>

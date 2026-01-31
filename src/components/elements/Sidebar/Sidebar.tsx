@@ -52,10 +52,10 @@ export const Sidebar: React.FC = () => {
               <li
                 className={clsx([
                   styles.nav__item,
-                  isActive(menu.path),
-                  isActiveDetail({ path: menu.path }),
+                  isActive(menuPath),
+                  isActiveDetail({ path: menuPath }),
                 ])}
-                key={menu.path}
+                key={menuPath}
               >
                 <button
                   disabled={menu.disabled}

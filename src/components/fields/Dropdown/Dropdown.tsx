@@ -82,13 +82,13 @@ export function Dropdown<
                     ...rest,
                     '&:hover': {
                       borderColor: state.isFocused
-                        ? '#EA7C69'
+                        ? '#F97415'
                         : rest.borderColor,
                     },
-                    borderColor: state.isFocused ? '#EA7C69' : rest.borderColor,
+                    borderColor: state.isFocused ? '#F97415' : rest.borderColor,
                     borderRadius: 8,
                     boxShadow: state.isFocused
-                      ? '0 0 0 1px #EA7C69'
+                      ? '0 0 0 1px #F97415'
                       : rest.boxShadow,
                     cursor: 'pointer',
                     minHeight: 48,
@@ -98,7 +98,7 @@ export function Dropdown<
                   option: (rest, state) => ({
                     ...rest,
                     backgroundColor: state.isSelected
-                      ? '#EA7C69'
+                      ? '#F97415'
                       : state.isFocused
                         ? 'rgba(234, 124, 105, 0.2)'
                         : rest.backgroundColor,
@@ -124,12 +124,12 @@ export function Dropdown<
                 control: (rest, state) => ({
                   ...rest,
                   '&:hover': {
-                    borderColor: state.isFocused ? '#EA7C69' : rest.borderColor,
+                    borderColor: state.isFocused ? '#F97415' : rest.borderColor,
                   },
-                  borderColor: state.isFocused ? '#EA7C69' : rest.borderColor,
+                  borderColor: state.isFocused ? '#F97415' : rest.borderColor,
                   borderRadius: 8,
                   boxShadow: state.isFocused
-                    ? '0 0 0 1px #EA7C69'
+                    ? '0 0 0 1px #F97415'
                     : rest.boxShadow,
                   cursor: 'pointer',
                   minHeight: 48,
@@ -139,7 +139,7 @@ export function Dropdown<
                 option: (rest, state) => ({
                   ...rest,
                   backgroundColor: state.isSelected
-                    ? '#EA7C69'
+                    ? '#F97415'
                     : state.isFocused
                       ? 'rgba(234, 124, 105, 0.2)'
                       : rest.backgroundColor,

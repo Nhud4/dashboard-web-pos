@@ -26,7 +26,7 @@ export const IncomeChart: React.FC = (): React.ReactElement => {
   const data: ChartData<'bar', number[], string> = {
     datasets: [
       {
-        backgroundColor: '#EA7C69',
+        backgroundColor: '#F97415',
         barPercentage: 0.5,
         borderRadius: 10,
         borderSkipped: false,

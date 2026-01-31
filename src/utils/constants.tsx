@@ -15,15 +15,8 @@ export const REVENUE = {
     ),
     status: 'success',
   },
-  merchant: {
-    color: '#39A1EA',
-    icon: (
-      <ICONS.EmptyWallet height={24} style={{ color: '#fff' }} width={24} />
-    ),
-    status: 'success',
-  },
   revenue: {
-    color: '#FF7555',
+    color: '#FEB558',
     icon: (
       <ICONS.EmptyWallet height={24} style={{ color: '#fff' }} width={24} />
     ),
@@ -34,6 +27,11 @@ export const REVENUE = {
 export const STATUS_OPTIONS = [
   { label: 'Aktif', value: true },
   { label: 'Non-Aktif', value: false },
+]
+
+export const PRINTER_OPTIONS = [
+  { label: 'Dapur', value: 'kitchen' },
+  { label: 'Bar', value: 'bar' },
 ]
 
 export const ACTIVE_OPTIONS = [

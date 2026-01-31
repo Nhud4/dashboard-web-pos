@@ -7,6 +7,7 @@ const categorySchema = z.object({
     .string()
     .nonempty('Nama kategori tidak boleh kosong')
     .min(3, { message: 'Nama kategori harus lebih dari 3 karakter' }),
+  printTarget: z.any(),
   status: z.any(),
   totalProduct: z.any(),
 })

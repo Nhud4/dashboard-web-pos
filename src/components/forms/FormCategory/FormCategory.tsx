@@ -10,7 +10,7 @@ import {
   fetchAddCategory,
   fetchEditCategory,
 } from '@redux/slices/category/action'
-import { STATUS_OPTIONS } from '@utils/constants'
+import { PRINTER_OPTIONS,STATUS_OPTIONS } from '@utils/constants'
 import type React from 'react'
 import { useContext, useMemo } from 'react'
 import { useForm } from 'react-hook-form'
@@ -26,6 +26,7 @@ type Props = {
 const defaultValue = {
   code: '',
   name: '',
+  printTarget: PRINTER_OPTIONS[0],
   status: STATUS_OPTIONS[0],
   totalProduct: '',
 }
@@ -40,6 +41,9 @@ export const FormCategory: React.FC<Props> = ({ varian, onSuccess, data }) => {
       return {
         code: data.code,
         name: data.name,
+        printTarget: PRINTER_OPTIONS.filter(
+          (val) => val.value === data.printTarget
+        )[0],
         status: data.status ? STATUS_OPTIONS[0] : STATUS_OPTIONS[1],
         totalProduct: data.totalProduct,
       }
@@ -56,6 +60,7 @@ export const FormCategory: React.FC<Props> = ({ varian, onSuccess, data }) => {
   const onSubmit = (val: typeof defaultValue) => {
     const payload: CategoryPayload = {
       name: val.name,
+      printTarget: val.printTarget.value,
       status: `${val.status.value}`,
     }
 
@@ -109,13 +114,22 @@ export const FormCategory: React.FC<Props> = ({ varian, onSuccess, data }) => {
           placeholder="0"
         />
       ) : null}
-      <Dropdown
-        control={control}
-        isDisabled={isDetail}
-        label="Status"
-        name="status"
-        options={STATUS_OPTIONS}
-      />
+      <div className="grid grid-cols-2 gap-4">
+        <Dropdown
+          control={control}
+          isDisabled={isDetail}
+          label="Status"
+          name="status"
+          options={STATUS_OPTIONS}
+        />
+        <Dropdown
+          control={control}
+          isDisabled={isDetail}
+          label="Target Printer"
+          name="printTarget"
+          options={PRINTER_OPTIONS}
+        />
+      </div>
       {!isDetail ? (
         <div className="flex items-center col-span-2 ml-auto space-x-2 w-fit pt-2">
           <Button onClick={onClose} variant="outline">
